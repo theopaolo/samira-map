@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Pretty Bay</title>
+  <desc id="desc">A graphic illustration of swimmers and umbrellas at a bright bay.</desc>
+  <rect width="1200" height="760" fill="#f3eee1"/>
+  <rect y="303" width="1200" height="457" fill="#9db6ca"/>
+  <path d="M0 426c214 34 408 24 584-30 201-62 406-59 616 8v356H0Z" fill="#335b72"/>
+  <path d="M0 557c214-55 407-48 578 20 176 71 383 76 622 15v168H0Z" fill="#173649"/>
+  <path d="M0 321c162-79 354-104 576-76 203 26 411 6 624-60v167c-196 48-398 62-607 42-230-23-428-2-593 62Z" fill="#f5df72"/>
+  <g stroke="#173649" stroke-width="8">
+    <path d="M194 246v133"/><path d="M119 248c43-70 119-70 155 0Z" fill="#e76143"/>
+    <path d="M900 206v151"/><path d="M813 209c49-82 137-82 177 0Z" fill="#f5df72"/>
+  </g>
+  <g fill="#f3eee1"><circle cx="370" cy="450" r="16"/><circle cx="431" cy="492" r="13"/><circle cx="761" cy="438" r="18"/><circle cx="1017" cy="528" r="13"/></g>
+  <g stroke="#f5df72" stroke-width="5" opacity=".8"><path d="M88 512h190"/><path d="M497 485h162"/><path d="M788 549h223"/></g>
+</svg>

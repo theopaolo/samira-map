@@ -1,0 +1,257 @@
+[
+  {
+    "id": "cold-war-monument",
+    "title": "Cold War Monument",
+    "category": "main location",
+    "content": [
+      {
+        "type": "image",
+        "src": "assets/monument.svg",
+        "alt": "Angular concrete monument beside the sea"
+      },
+      {
+        "type": "text",
+        "value": "A severe concrete marker facing the harbour. Its changing silhouette has become one of the coast’s most recognisable meeting points."
+      },
+      {
+        "type": "text",
+        "value": "This entry brings together personal recollections, planning fragments and photographs made along the waterfront."
+      }
+    ],
+    "url": {
+      "type": "inpage",
+      "href": "#cold-war-monument",
+      "label": "Visit page"
+    },
+    "gps-coordinates": {
+      "latitude": 35.8249,
+      "longitude": 14.5322
+    }
+  },
+  {
+    "id": "pretty-bay-sundays",
+    "title": "Pretty Bay, on Sundays",
+    "category": "main stories",
+    "content": [
+      {
+        "type": "image",
+        "src": "assets/bay.svg",
+        "alt": "Umbrellas and swimmers along Pretty Bay"
+      },
+      {
+        "type": "text",
+        "value": "A shoreline changes character every Sunday: early swimmers, family tables, music from open car windows and the slow return of fishing boats."
+      }
+    ],
+    "url": {
+      "type": "inpage",
+      "href": "#pretty-bay-sundays",
+      "label": "Open story"
+    },
+    "gps-coordinates": {
+      "latitude": 35.8276,
+      "longitude": 14.5294
+    }
+  },
+  {
+    "id": "freeport-night-shift",
+    "title": "Night Shift at the Freeport",
+    "category": "submitted video",
+    "content": [
+      {
+        "type": "video",
+        "src": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+        "poster": "assets/harbour.svg",
+        "caption": "Video component demo — replace this source with the submitted field recording."
+      },
+      {
+        "type": "text",
+        "value": "A short field note about the lights, sounds and repeated movements that shape a night shift by the container terminal."
+      }
+    ],
+    "url": {
+      "type": "inpage",
+      "href": "#freeport-night-shift",
+      "label": "Watch video"
+    },
+    "gps-coordinates": {
+      "latitude": 35.8168,
+      "longitude": 14.5167
+    }
+  },
+  {
+    "id": "parish-procession-1978",
+    "title": "The Procession, 1978",
+    "category": "archival footage",
+    "content": [
+      {
+        "type": "image",
+        "src": "assets/archive.svg",
+        "alt": "Stylised frame from an archival street procession"
+      },
+      {
+        "type": "text",
+        "value": "Digitised Super 8 fragments follow the festa procession through streets dressed with banners and temporary lights."
+      }
+    ],
+    "url": {
+      "type": "external",
+      "href": "https://archive.org/",
+      "label": "View archive source"
+    },
+    "gps-coordinates": {
+      "latitude": 35.8275,
+      "longitude": 14.5267
+    }
+  },
+  {
+    "id": "boats-before-dawn",
+    "title": "Boats Before Dawn",
+    "category": "submitted video",
+    "content": [
+      {
+        "type": "image",
+        "src": "assets/harbour.svg",
+        "alt": "Small boats resting in a sheltered harbour"
+      },
+      {
+        "type": "text",
+        "value": "Two minutes at water level: ropes tapping against masts, first engines starting and a horizon that is only beginning to appear."
+      }
+    ],
+    "url": {
+      "type": "inpage",
+      "href": "#boats-before-dawn",
+      "label": "Open field note"
+    },
+    "gps-coordinates": {
+      "latitude": 35.829,
+      "longitude": 14.526
+    }
+  },
+  {
+    "id": "breakwater-line",
+    "title": "The Breakwater Line",
+    "category": "main stories",
+    "content": [
+      {
+        "type": "image",
+        "src": "assets/harbour.svg",
+        "alt": "Breakwater stretching into open blue water"
+      },
+      {
+        "type": "text",
+        "value": "A walk from the last row of houses to the end of the breakwater traces the threshold between working harbour and open sea."
+      }
+    ],
+    "url": {
+      "type": "inpage",
+      "href": "#breakwater-line",
+      "label": "Follow the route"
+    },
+    "gps-coordinates": {
+      "latitude": 35.8224,
+      "longitude": 14.5387
+    }
+  },
+  {
+    "id": "ghar-dalam",
+    "title": "Għar Dalam",
+    "category": "main location",
+    "content": [
+      {
+        "type": "image",
+        "src": "assets/archive.svg",
+        "alt": "Layered rock forms suggesting the entrance to a cave"
+      },
+      {
+        "type": "text",
+        "value": "A deep-time landmark just inland. The cave’s layers connect the contemporary town to a much longer record of movement and settlement."
+      }
+    ],
+    "url": {
+      "type": "external",
+      "href": "https://www.openstreetmap.org/?mlat=35.8364&mlon=14.4847#map=17/35.8364/14.4847",
+      "label": "Open location"
+    },
+    "gps-coordinates": {
+      "latitude": 35.8364,
+      "longitude": 14.4847
+    }
+  },
+  {
+    "id": "salt-on-the-windows",
+    "title": "Salt on the Windows",
+    "category": "main stories",
+    "content": [
+      {
+        "type": "image",
+        "src": "assets/bay.svg",
+        "alt": "Coastal windows facing a bright shoreline"
+      },
+      {
+        "type": "text",
+        "value": "Four residents describe living with the sea as a neighbour: salt, wind, changing views and the constant measure of distance."
+      }
+    ],
+    "url": {
+      "type": "inpage",
+      "href": "#salt-on-the-windows",
+      "label": "Read voices"
+    },
+    "gps-coordinates": {
+      "latitude": 35.8308,
+      "longitude": 14.5281
+    }
+  },
+  {
+    "id": "seafront-1964",
+    "title": "Seafront, Summer 1964",
+    "category": "archival footage",
+    "content": [
+      {
+        "type": "image",
+        "src": "assets/archive.svg",
+        "alt": "Grainy archival view of people on a seafront"
+      },
+      {
+        "type": "text",
+        "value": "An anonymous reel shows deckchairs, improvised shade and a seafront before the container cranes entered the skyline."
+      }
+    ],
+    "url": {
+      "type": "external",
+      "href": "https://archive.org/",
+      "label": "View archive source"
+    },
+    "gps-coordinates": {
+      "latitude": 35.8262,
+      "longitude": 14.5315
+    }
+  },
+  {
+    "id": "st-peters-pool",
+    "title": "St Peter’s Pool",
+    "category": "main location",
+    "content": [
+      {
+        "type": "image",
+        "src": "assets/bay.svg",
+        "alt": "Low limestone cliffs surrounding blue water"
+      },
+      {
+        "type": "text",
+        "value": "A natural inlet east of town, recorded here as both a swimming place and a marker in the wider coastal landscape."
+      }
+    ],
+    "url": {
+      "type": "external",
+      "href": "https://www.openstreetmap.org/?mlat=35.8322&mlon=14.5627#map=17/35.8322/14.5627",
+      "label": "Open location"
+    },
+    "gps-coordinates": {
+      "latitude": 35.8322,
+      "longitude": 14.5627
+    }
+  }
+]

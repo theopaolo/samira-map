@@ -1,0 +1,55 @@
+/* Full-height root — needed for the sticky map layout */
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+/* Override Piloti's system-ui default and base colors */
+body {
+  min-width: 320px;
+  overflow-x: hidden;
+  font-family: inherit;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+/* Override Piloti's --color-primary link color */
+a {
+  color: inherit;
+}
+
+button,
+a,
+video {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+#map:focus-visible {
+  outline: 3px solid var(--coral);
+  outline-offset: 3px;
+}
+
+[x-cloak] {
+  display: none !important;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 2000;
+  top: 12px;
+  left: 12px;
+  padding: 10px 14px;
+  color: var(--paper-bright);
+  background: var(--ink-deep);
+  transform: translateY(-160%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}

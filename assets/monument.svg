@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Cold War Monument</title>
+  <desc id="desc">A graphic illustration of a concrete monument on the waterfront.</desc>
+  <rect width="1200" height="760" fill="#9db6ca"/>
+  <circle cx="994" cy="142" r="82" fill="#f5df72"/>
+  <path d="M0 475c171-32 307-26 431 15 137 45 312 35 525-34 84-28 166-35 244-22v326H0Z" fill="#335b72"/>
+  <path d="M0 555c223-38 416-24 579 43 158 65 365 66 621 4v158H0Z" fill="#153447" opacity=".82"/>
+  <path d="M517 136h113v453H517z" fill="#d2c4a8"/>
+  <path d="m446 178 71-42v250l-71 42z" fill="#847b68"/>
+  <path d="m630 136 173 52v202l-173-38z" fill="#a69c84"/>
+  <path d="m517 136 113 0v216H517z" fill="#b6a98e"/>
+  <path d="M108 568h984" stroke="#f4efe3" stroke-width="10" stroke-dasharray="18 16" opacity=".75"/>
+  <path d="M91 609h1028" stroke="#f5df72" stroke-width="3" opacity=".9"/>
+  <g fill="#f4efe3"><rect x="174" y="522" width="64" height="37"/><rect x="887" y="503" width="76" height="44"/></g>
+</svg>

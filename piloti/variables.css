@@ -1,0 +1,72 @@
+/* ============================================
+   CSS Variables - Auto-generated
+   Config: config.json
+   ============================================ */
+
+:root {
+
+  /* Color */
+  --color-primary: #2d3748;
+  --color-secondary: #99a4b3;
+  --color-accent: #ff9948;
+  --color-dark: #1f2937;
+  --color-light: #f3f4f6;
+
+  /* Spacing */
+  --spacing-0: 0;
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+
+  /* Radius */
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-full: 624.9375rem;
+
+  /* FontSize */
+  --fontSize-sm: 0.875rem;
+  --fontSize-base: 1rem;
+  --fontSize-xl: 1.375rem;
+  --fontSize-2xl: 2rem;
+  --fontSize-3xl: 2.5rem;
+  --fontSize-4xl: 3rem;
+
+  /* LineHeight */
+  --lineHeight-none: 1;
+  --lineHeight-tight: 1.25;
+  --lineHeight-normal: 1.5;
+  --lineHeight-relaxed: 1.75;
+  --lineHeight-loose: 2;
+
+  /* Shadow */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+  --shadow-none: none;
+
+  /* ZIndex */
+  --zIndex-0: 0;
+  --zIndex-10: 10;
+  --zIndex-20: 20;
+  --zIndex-30: 30;
+  --zIndex-40: 40;
+  --zIndex-50: 50;
+
+  /* Size */
+  --size-0: 0;
+  --size-full: 100%;
+  --size-screen: 100vh;
+  --size-auto: auto;
+  --size-1/2: 50%;
+  --size-1/3: 33.333%;
+  --size-2/3: 66.666%;
+  --size-1/4: 25%;
+  --size-3/4: 75%;
+}

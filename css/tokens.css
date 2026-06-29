@@ -1,0 +1,28 @@
+:root {
+  /* Palette */
+  --ink: #15273a;
+  --ink-deep: #0d1b29;
+  --paper: #efe9da;
+  --paper-bright: #fffdf4;
+  --sea: #97abd1;
+  --water: #aabddf;
+  --blue: #5d7aa6;
+  --yellow: #f2d65f;
+  --coral: #e8654a;
+  --sage: #a7c098;
+
+  /* Semantic */
+  --line: rgba(21, 39, 58, 0.2);
+  --shadow: 0 18px 60px rgba(13, 27, 41, 0.2);
+  --header-height: 84px;
+
+  /* Typography stacks */
+  --font-sans: "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --font-black: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --font-serif: Georgia, "Times New Roman", serif;
+
+  color-scheme: light;
+  font-family: var(--font-sans);
+  font-synthesis: none;
+}

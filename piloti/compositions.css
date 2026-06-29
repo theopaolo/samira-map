@@ -1,0 +1,56 @@
+/* Piloti Compositions */
+
+/* Stack - Empilement vertical */
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--stack-space, var(--spacing-4));
+}
+
+.stack[data-space="sm"] {
+  --stack-space: var(--spacing-2);
+}
+
+.stack[data-space="lg"] {
+  --stack-space: var(--spacing-8);
+}
+
+/* Cluster - Groupement horizontal */
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--cluster-space, var(--spacing-4));
+  align-items: center;
+}
+
+.cluster[data-justify="between"] {
+  justify-content: space-between;
+}
+
+.cluster[data-justify="center"] {
+  justify-content: center;
+}
+
+/* Flow - Espacement */
+.flow > * + * {
+  margin-top: var(--flow-space, var(--spacing-4));
+}
+
+.test {
+  padding: var(--spacing-3)
+}
+
+.flow[data-space="sm"] {
+  --flow-space: 0.5rem;
+}
+
+.flow[data-space="lg"] {
+  --flow-space: 2rem;
+}
+
+/* Plus d'espace avant les titres */
+.flow > * + h2,
+.flow > * + h3 {
+  margin-top: calc(var(--flow-space, 1rem) * 2);
+}
+

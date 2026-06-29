@@ -1,0 +1,83 @@
+.contribution-footer {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(300px, 1.5fr) minmax(100px, 1fr);
+  align-items: end;
+  min-height: 190px;
+  gap: 30px;
+  padding: 26px 18px 20px;
+  color: var(--yellow);
+  background: var(--sea);
+}
+
+.footer-title span,
+.footer-title strong {
+  display: block;
+  text-transform: uppercase;
+}
+
+.footer-title span {
+  margin-bottom: 5px;
+  font-family: var(--font-mono);
+  font-size: 16px;
+  letter-spacing: 0.05em;
+}
+
+.footer-title strong {
+  font-family: var(--font-black);
+  font-size: 26px;
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+}
+
+.footer-invite {
+  align-self: center;
+  text-align: center;
+}
+
+.footer-invite p {
+  max-width: 480px;
+  margin: 0 auto 15px;
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.footer-submit {
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--yellow);
+  color: var(--yellow);
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.footer-submit:hover {
+  color: var(--ink);
+  background: var(--yellow);
+}
+
+.footer-mark {
+  justify-self: end;
+  text-align: center;
+}
+
+.footer-mark > span {
+  display: block;
+  width: 42px;
+  height: 62px;
+  margin: 0 auto 6px;
+  border-radius: 22px 22px 0 0;
+  background: var(--yellow);
+}
+
+.footer-mark small {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  line-height: 1;
+  text-transform: uppercase;
+}

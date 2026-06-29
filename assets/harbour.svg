@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Harbour at dawn</title>
+  <desc id="desc">A graphic illustration of small boats and cranes in a harbour.</desc>
+  <rect width="1200" height="760" fill="#7e9cb5"/>
+  <circle cx="254" cy="203" r="88" fill="#f5df72"/>
+  <path d="M0 407c205-31 396-14 572 51 199 74 408 80 628 19v283H0Z" fill="#173649"/>
+  <path d="M0 497c242-22 450 3 625 75 169 69 361 80 575 34v154H0Z" fill="#0d2534"/>
+  <g fill="none" stroke="#d8e2e8" stroke-width="9"><path d="M773 107v334M773 113h190l-190 107M937 113v245"/><path d="M1037 177v255M1037 182h122l-122 77"/></g>
+  <g><path d="m160 481 226 0-39 71H207Z" fill="#e76143"/><path d="M269 350v132M269 359l113 79H269Z" fill="#f3eee1"/><path d="m522 536 190 0-33 55H557Z" fill="#f5df72"/><path d="M616 418v118M616 423l90 69h-90Z" fill="#f3eee1"/></g>
+  <g stroke="#9db6ca" stroke-width="4" opacity=".75"><path d="M68 638h364"/><path d="M488 664h278"/><path d="M807 624h298"/></g>
+</svg>

@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="An interactive cultural map of Birżebbuġa, Malta."
+    />
+    <title>Mal-Bajja · By the Bay — Birżebbuġa</title>
+    <link rel="icon" href="data:," />
+    <link rel="preconnect" href="https://basemaps.cartocdn.com" />
+    <link rel="stylesheet" href="vendor/leaflet/leaflet.css" />
+    <link rel="stylesheet" href="piloti/index.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="vendor/leaflet/leaflet.js"></script>
+    <script type="module" src="js/main.js"></script>
+  </head>
+  <body x-data>
+    <a class="skip-link" href="#map">Skip to map</a>
+
+    <header class="site-header">
+      <a class="brand" href="#map" aria-label="Mal-Bajja · By the Bay home">
+        <strong>Mal-Bajja · By the Bay</strong>
+        <small>Birżebbuġa</small>
+      </a>
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <a class="nav-link is-active" href="#map" aria-current="page">Map</a>
+        <button
+          class="nav-link"
+          type="button"
+          :aria-expanded="$store.atlas.directoryOpen"
+          aria-controls="directory"
+          @click="$store.atlas.toggleDirectory()"
+        >
+          Index
+          <span
+            class="nav-count"
+            x-text="$store.atlas.points.length || '—'"
+          ></span>
+        </button>
+        <button
+          class="nav-link"
+          type="button"
+          @click="$store.atlas.openSubmit()"
+        >
+          Submit
+        </button>
+        <a class="nav-link" href="#about">About</a>
+        <span class="language-badge" title="Maltese edition">MT</span>
+      </nav>
+    </header>
+
+    <main class="app-shell">
+      <aside class="story-panel" aria-labelledby="story-title">
+        <div class="story-nav">
+          <p
+            class="story-count"
+            aria-live="polite"
+            x-text="$store.atlas.indexLabel"
+          ></p>
+          <div class="story-nav-buttons">
+            <button
+              class="icon-button"
+              type="button"
+              aria-label="Previous place"
+              @click="$store.atlas.move(-1)"
+            >
+              ←
+            </button>
+            <button
+              class="icon-button"
+              type="button"
+              aria-label="Next place"
+              @click="$store.atlas.move(1)"
+            >
+              →
+            </button>
+          </div>
+        </div>
+
+        <template x-if="$store.atlas.activePoint">
+          <div class="story-body">
+            <div class="story-media">
+              <template x-if="$store.atlas.activePoint.media?.type === 'video'">
+                <video
+                  controls
+                  preload="metadata"
+                  :src="$store.atlas.activePoint.media.src"
+                  :poster="$store.atlas.activePoint.media.poster"
+                  :aria-label="$store.atlas.activePoint.media.caption || $store.atlas.activePoint.title"
+                ></video>
+              </template>
+              <template x-if="$store.atlas.activePoint.media?.type === 'image'">
+                <img
+                  :src="$store.atlas.activePoint.media.src"
+                  :alt="$store.atlas.activePoint.media.alt || ''"
+                />
+              </template>
+              <template x-if="!$store.atlas.activePoint.media">
+                <div class="media-placeholder">
+                  <span>No media attached</span>
+                </div>
+              </template>
+              <template x-if="$store.atlas.activePoint.media?.caption">
+                <p
+                  class="media-caption"
+                  x-text="$store.atlas.activePoint.media.caption"
+                ></p>
+              </template>
+            </div>
+
+            <article class="story-content">
+              <p class="category-label">
+                <span
+                  class="inline-icon"
+                  aria-hidden="true"
+                  x-text="$store.atlas.activePoint.glyph"
+                ></span>
+                <span x-text="$store.atlas.activePoint.category"></span>
+              </p>
+              <h1 id="story-title" x-text="$store.atlas.activePoint.title"></h1>
+
+              <div class="story-copy">
+                <template
+                  x-for="(paragraph, index) in $store.atlas.activePoint.paragraphs"
+                  :key="index"
+                >
+                  <p x-text="paragraph"></p>
+                </template>
+              </div>
+
+              <div class="story-footer">
+                <a
+                  class="story-link"
+                  :href="$store.atlas.activePoint.url.href"
+                  :target="$store.atlas.activePoint.url.type === 'external' ? '_blank' : null"
+                  :rel="$store.atlas.activePoint.url.type === 'external' ? 'noreferrer' : null"
+                >
+                  <span x-text="$store.atlas.activePoint.url.label"></span>
+                  <span aria-hidden="true">↗</span>
+                </a>
+                <a
+                  class="coordinate-link"
+                  target="_blank"
+                  rel="noreferrer"
+                  :href="`https://www.openstreetmap.org/?mlat=${$store.atlas.activePoint.lat}&mlon=${$store.atlas.activePoint.lng}#map=17/${$store.atlas.activePoint.lat}/${$store.atlas.activePoint.lng}`"
+                  x-text="`${$store.atlas.activePoint.lat.toFixed(4)}° N  ${$store.atlas.activePoint.lng.toFixed(4)}° E`"
+                ></a>
+              </div>
+            </article>
+          </div>
+        </template>
+      </aside>
+
+      <section class="map-section" aria-label="Interactive story map">
+        <div class="map-toolbar" aria-label="Filter map points">
+          <div class="filters" role="group" aria-label="Filter by category">
+            <template x-for="filter in $store.atlas.filters" :key="filter.key">
+              <button
+                class="filter-button"
+                type="button"
+                :class="{ 'is-active': $store.atlas.activeCategory === filter.key }"
+                :aria-pressed="$store.atlas.activeCategory === filter.key"
+                @click="$store.atlas.setCategory(filter.key)"
+              >
+                <span
+                  class="filter-icon"
+                  :class="'tone-' + filter.tone"
+                  aria-hidden="true"
+                  x-text="filter.glyph"
+                ></span>
+                <span x-text="filter.label"></span>
+              </button>
+            </template>
+          </div>
+        </div>
+
+        <div id="map" tabindex="0" aria-label="Map of Birżebbuġa"></div>
+        <div class="map-progress" id="map-progress" role="status">
+          Loading map points…
+        </div>
+        <button class="reset-view" id="reset-view" type="button">
+          Reset view
+        </button>
+
+        <!-- Pin placement banner: shown while the contributor is choosing a point. -->
+        <div
+          class="placement-banner"
+          role="status"
+          x-show="$store.atlas.placing"
+          x-cloak
+        >
+          <div>
+            <strong>Click the map to drop your pin</strong>
+            <span x-text="$store.atlas.placementLabel"></span>
+          </div>
+          <div class="placement-actions">
+            <button
+              type="button"
+              class="ghost"
+              @click="$store.atlas.cancelPlacing()"
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              @click="$store.atlas.confirmPlacement()"
+              :disabled="!$store.atlas.hasPlacement"
+            >
+              Use this location
+            </button>
+          </div>
+        </div>
+
+        <aside
+          class="directory"
+          id="directory"
+          aria-label="All map points"
+          :aria-hidden="!$store.atlas.directoryOpen"
+          :inert="!$store.atlas.directoryOpen"
+          :class="{ 'is-open': $store.atlas.directoryOpen }"
+        >
+          <div class="directory-header">
+            <div>
+              <p class="directory-kicker">Index</p>
+              <h2>All places</h2>
+              <button
+                class="directory-submit"
+                type="button"
+                @click="$store.atlas.openSubmit()"
+              >
+                Submit a story <span aria-hidden="true">↗</span>
+              </button>
+            </div>
+            <button
+              class="icon-button directory-close"
+              type="button"
+              aria-label="Close place index"
+              @click="$store.atlas.toggleDirectory(false)"
+            >
+              ×
+            </button>
+          </div>
+          <div class="directory-list">
+            <template
+              x-for="point in $store.atlas.visiblePoints"
+              :key="point.id"
+            >
+              <button
+                class="directory-item"
+                type="button"
+                :class="{ 'is-active': point.id === $store.atlas.activeId }"
+                :aria-label="`Open ${point.title}`"
+                @click="$store.atlas.focus(point.id); $store.atlas.toggleDirectory(false)"
+              >
+                <span
+                  class="directory-item-icon"
+                  aria-hidden="true"
+                  x-text="point.glyph"
+                ></span>
+                <span>
+                  <strong x-text="point.title"></strong>
+                  <small x-text="point.category"></small>
+                </span>
+                <span class="directory-item-arrow" aria-hidden="true">→</span>
+              </button>
+            </template>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="contribution-footer" id="about">
+      <div class="footer-title" aria-label="Mal-Bajja · By the Bay, Birżebbuġa">
+        <span>Birżebbuġa</span>
+        <strong>Mal-Bajja<br />By the Bay</strong>
+      </div>
+      <div class="footer-invite">
+        <p>Do you have a memory, image or video connected to the bay?</p>
+        <button
+          class="footer-submit"
+          type="button"
+          @click="$store.atlas.openSubmit()"
+        >
+          Submit your story <span aria-hidden="true">→</span>
+        </button>
+      </div>
+      <div class="footer-mark" aria-label="Community archive">
+        <span aria-hidden="true"></span>
+        <small>Kunsill Malti<br />għall-Arti</small>
+      </div>
+    </footer>
+
+    <dialog
+      class="submit-dialog"
+      id="submit-dialog"
+      aria-labelledby="submit-title"
+      x-effect="$store.atlas.syncDialog($el)"
+      @close="$store.atlas.submitOpen = false"
+      @click.self="$store.atlas.submitOpen = false"
+    >
+      <div class="submit-dialog-inner">
+        <header class="submit-header">
+          <div>
+            <p>Community contribution</p>
+            <h2 id="submit-title">Add your story to the map</h2>
+          </div>
+          <button
+            class="submit-close"
+            type="button"
+            aria-label="Close submission form"
+            @click="$store.atlas.submitOpen = false"
+          >
+            ×
+          </button>
+        </header>
+
+        <div class="submission-form-shell">
+          <form
+            class="submission-form"
+            id="story-submission-form"
+            name="wf-form-Story-Submission"
+            data-name="Story Submission"
+            method="post"
+            x-show="$store.atlas.submitState === 'form'"
+            @submit="$store.atlas.submit($event)"
+          >
+            <p class="submission-intro">
+              Share a place, memory or recording. Every submission is reviewed
+              before it appears publicly.
+            </p>
+
+            <div class="submission-grid">
+              <label class="submission-field field-span-2">
+                <span>Story title *</span>
+                <input
+                  type="text"
+                  name="Story-title"
+                  maxlength="120"
+                  required
+                  autocomplete="off"
+                />
+              </label>
+
+              <label class="submission-field">
+                <span>Your name</span>
+                <input
+                  type="text"
+                  name="Name"
+                  maxlength="100"
+                  autocomplete="name"
+                />
+              </label>
+
+              <label class="submission-field">
+                <span>Email *</span>
+                <input
+                  type="email"
+                  name="Email"
+                  required
+                  autocomplete="email"
+                />
+              </label>
+
+              <label class="submission-field">
+                <span>Contribution type *</span>
+                <select name="Category" required>
+                  <option value="">Choose one</option>
+                  <option value="main stories">Story or memory</option>
+                  <option value="submitted video">Video or audio</option>
+                  <option value="archival footage">Archival material</option>
+                  <option value="main location">A place to document</option>
+                </select>
+              </label>
+
+              <label class="submission-field">
+                <span>Location name *</span>
+                <input
+                  type="text"
+                  name="Location"
+                  maxlength="120"
+                  required
+                  placeholder="e.g. Pretty Bay"
+                />
+              </label>
+
+              <label class="submission-field field-span-2">
+                <span>Your story *</span>
+                <textarea name="Story" rows="6" required></textarea>
+              </label>
+
+              <label class="submission-field field-span-2">
+                <span>Media link</span>
+                <input
+                  type="url"
+                  name="Media-link"
+                  placeholder="Link to an image, video or shared folder"
+                  inputmode="url"
+                />
+              </label>
+
+              <!-- Pin picker replaces the old latitude / longitude number inputs. -->
+              <div class="submission-field field-span-2 location-picker">
+                <span>Pin location *</span>
+                <div class="location-picker-row">
+                  <output
+                    class="location-readout"
+                    x-text="$store.atlas.placementLabel"
+                  ></output>
+                  <button
+                    type="button"
+                    class="location-pick"
+                    @click="$store.atlas.startPlacing()"
+                  >
+                    <span
+                      x-text="$store.atlas.hasPlacement ? 'Move pin on map' : 'Choose on map'"
+                    ></span>
+                    <span aria-hidden="true">↗</span>
+                  </button>
+                </div>
+                <input
+                  type="hidden"
+                  name="Latitude"
+                  :value="$store.atlas.placement.lat ?? ''"
+                />
+                <input
+                  type="hidden"
+                  name="Longitude"
+                  :value="$store.atlas.placement.lng ?? ''"
+                />
+                <p class="location-hint">
+                  Click the map to drop the pin, then drag it to fine-tune. An
+                  editor can reposition it later if needed.
+                </p>
+              </div>
+
+              <label class="submission-consent field-span-2">
+                <input type="checkbox" name="Consent" value="Yes" required />
+                <span
+                  >I confirm that this material can be reviewed for publication
+                  in the community archive. *</span
+                >
+              </label>
+            </div>
+
+            <label class="submission-honeypot" aria-hidden="true" hidden>
+              Website
+              <input
+                type="text"
+                name="Website"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </label>
+
+            <div class="submission-actions">
+              <p x-text="$store.atlas.modeNote">
+                Submissions are reviewed before publication.
+              </p>
+              <button class="submission-send" type="submit">
+                Send contribution <span aria-hidden="true">→</span>
+              </button>
+            </div>
+          </form>
+
+          <div
+            class="submission-success"
+            x-show="$store.atlas.submitState === 'done'"
+            x-cloak
+          >
+            <span aria-hidden="true">✓</span>
+            <h3>Thank you.</h3>
+            <p>Your story has been received for review.</p>
+            <button type="button" @click="$store.atlas.submitState = 'form'">
+              Send another story
+            </button>
+          </div>
+
+          <div
+            class="submission-error"
+            role="alert"
+            x-show="$store.atlas.submitState === 'error'"
+            x-cloak
+          >
+            Something went wrong. Please check the form and try again.
+          </div>
+        </div>
+      </div>
+    </dialog>
+
+    <div id="map-cms-source" hidden aria-hidden="true"></div>
+
+    <noscript
+      >This map requires JavaScript to load its places and OpenStreetMap
+      view.</noscript
+    >
+  </body>
+</html>

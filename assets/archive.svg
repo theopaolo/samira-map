@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Archival procession</title>
+  <desc id="desc">A grainy monochrome graphic inspired by an old film frame.</desc>
+  <defs><filter id="noise"><feTurbulence baseFrequency=".75" numOctaves="3" seed="7" result="n"/><feBlend in="SourceGraphic" in2="n" mode="multiply"/></filter></defs>
+  <rect width="1200" height="760" fill="#d3cab6"/>
+  <g filter="url(#noise)" opacity=".78">
+    <rect x="92" y="72" width="1016" height="616" fill="#ede5d4" stroke="#173649" stroke-width="18"/>
+    <path d="M92 488 313 300l170 104 201-196 424 280v200H92Z" fill="#7c877f"/>
+    <path d="M92 559c189-55 345-50 469 15 144 76 327 80 547 13v101H92Z" fill="#173649"/>
+    <g fill="#173649"><circle cx="274" cy="484" r="42"/><path d="m222 601 22-93h61l31 93Z"/><circle cx="505" cy="510" r="35"/><path d="m456 615 22-81h54l27 81Z"/><circle cx="813" cy="478" r="46"/><path d="m755 612 25-105h67l32 105Z"/></g>
+    <g fill="#f5df72"><path d="m316 176 12 37 39 0-32 23 12 37-31-23-32 23 12-37-31-23 39 0Z"/><path d="m826 142 12 37 39 0-32 23 12 37-31-23-32 23 12-37-31-23 39 0Z"/></g>
+  </g>
+  <g fill="#173649"><rect x="26" y="85" width="32" height="74"/><rect x="26" y="213" width="32" height="74"/><rect x="26" y="341" width="32" height="74"/><rect x="26" y="469" width="32" height="74"/><rect x="26" y="597" width="32" height="74"/><rect x="1142" y="85" width="32" height="74"/><rect x="1142" y="213" width="32" height="74"/><rect x="1142" y="341" width="32" height="74"/><rect x="1142" y="469" width="32" height="74"/><rect x="1142" y="597" width="32" height="74"/></g>
+</svg>
