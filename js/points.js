@@ -79,12 +79,10 @@ function fromCmsElement(element, index) {
   );
 }
 
+import fallbackPoints from "../data/points.json";
+
 export async function loadPoints() {
   const cmsPoints = [...document.querySelectorAll("[data-map-entry]")].map(fromCmsElement).filter(isValid);
   if (cmsPoints.length) return cmsPoints;
-
-  const response = await fetch("data/points.json");
-  if (!response.ok) throw new Error(`Point data returned ${response.status}.`);
-  const json = await response.json();
-  return json.map(fromJson).filter(isValid);
+  return fallbackPoints.map(fromJson).filter(isValid);
 }
