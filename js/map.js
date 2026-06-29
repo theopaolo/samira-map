@@ -1,5 +1,7 @@
 // Leaflet glue. The map stays imperative, but it is *driven* by the store
 // through a handful of Alpine effects, so there is one source of truth.
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
 import { MAP } from "./config.js";
 
 let map;
