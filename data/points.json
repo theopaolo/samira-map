@@ -253,5 +253,25 @@
       "latitude": 35.8322,
       "longitude": 14.5627
     }
+  },
+  {
+    "title": "Un titre d'histoire",
+    "category": "submitted video",
+    "content": [
+      {
+        "type": "text",
+        "value": "L'histoire de ce lieu"
+      }
+    ],
+    "gps-coordinates": {
+      "latitude": 35.86179,
+      "longitude": 14.50659
+    },
+    "id": "un-titre-d-histoire",
+    "url": {
+      "type": "inpage",
+      "href": "#un-titre-d-histoire",
+      "label": "Visit page"
+    }
   }
 ]

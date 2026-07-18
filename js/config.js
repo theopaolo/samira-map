@@ -13,21 +13,31 @@ export const MAP = {
   },
 };
 
-// A category drives both its marker glyph and its CSS slug (marker-* / tone-*).
-export const CATEGORIES = {
-  "main stories": { glyph: "▼", slug: "main-stories" },
-  "submitted video": { glyph: "♥", slug: "submitted-video" },
-  "main location": { glyph: "■", slug: "main-location" },
-  "archival footage": { glyph: "★", slug: "archival-footage" },
-};
+// One entry per category — the single place to edit a category's label, marker
+// colour tone, icon and text-glyph fallback. Drives the markers, filter bar and
+// story category label alike.
+//
+// Custom icons: drop an SVG/PNG into public/assets/icons/ and point `icon` at
+// it (path relative to the site root). Icons render as silhouettes tinted with
+// the marker colour, so only the shape matters. Set `icon: null` to fall back
+// to the text `glyph`. See public/assets/icons/README.md.
+export const CATEGORY_LIST = [
+  { key: "main stories",     label: "Main stories",     slug: "main-stories",     tone: "stories",  glyph: "▼", icon: "assets/icons/main-stories.svg" },
+  { key: "submitted video",  label: "Submitted video",  slug: "submitted-video",  tone: "video",    glyph: "♥", icon: "assets/icons/submitted-video.svg" },
+  { key: "main location",    label: "Main locations",   slug: "main-location",    tone: "location", glyph: "■", icon: "assets/icons/main-location.svg" },
+  { key: "archival footage", label: "Archival footage", slug: "archival-footage", tone: "archive",  glyph: "★", icon: "assets/icons/archival-footage.svg" },
+];
 
 export const DEFAULT_CATEGORY = "main stories";
 
-// Ordered list rendered as the map legend / filter bar.
+// Keyed lookup used when shaping points.
+export const CATEGORIES = Object.fromEntries(
+  CATEGORY_LIST.map((category) => [category.key, category])
+);
+
+// Ordered list rendered as the map legend / filter bar: an "all" pseudo-filter
+// plus every category.
 export const FILTERS = [
-  { key: "all", label: "All places", glyph: "••", tone: "all" },
-  { key: "main stories", label: "Main stories", glyph: "▼", tone: "stories" },
-  { key: "submitted video", label: "Submitted video", glyph: "♥", tone: "video" },
-  { key: "main location", label: "Main locations", glyph: "■", tone: "location" },
-  { key: "archival footage", label: "Archival footage", glyph: "★", tone: "archive" },
+  { key: "all", label: "All places", tone: "all", glyph: "••", icon: null },
+  ...CATEGORY_LIST,
 ];

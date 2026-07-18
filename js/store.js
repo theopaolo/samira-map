@@ -1,6 +1,9 @@
 // The reactive UI brain: one Alpine store holds all view state and actions.
 // The map module reads this store; the templates render from it. No manual DOM.
 import { FILTERS } from "./config.js";
+import { createPin, formToEntry } from "./pins-api.js";
+import { shapeJsonPoint } from "./points.js";
+import { rebuildMarkers } from "./map.js";
 
 const round = (value) => Math.round(value * 1e5) / 1e5;
 
@@ -15,20 +18,9 @@ export function transportNote() {
   const note = {
     endpoint: "Your contribution will be sent for review.",
     webflow: "Submitted securely through Webflow for review.",
-    local: "Local preview: this test submission is stored only in this browser.",
+    local: "Builder mode: this pin is written to data/points.json — run a build to publish it.",
   };
   return note[transport().type];
-}
-
-function saveLocal(formData) {
-  const key = "mal-bajja:story-submissions:v1";
-  const stored = JSON.parse(localStorage.getItem(key) || "[]");
-  stored.push({
-    ...Object.fromEntries(formData.entries()),
-    submittedAt: new Date().toISOString(),
-    status: "pending-preview",
-  });
-  localStorage.setItem(key, JSON.stringify(stored));
 }
 
 export function createStore() {
@@ -39,7 +31,6 @@ export function createStore() {
     activeId: null,
     focusToken: 0, // bumped only when a selection should pan the map
     focusTarget: null, // [lat, lng] captured at focus time so panning never tracks activeId
-    directoryOpen: false,
     submitOpen: false,
     submitState: "form", // "form" | "done" | "error"
     modeNote: "",
@@ -101,13 +92,8 @@ export function createStore() {
         if (first) this.select(first.id);
       }
     },
-    toggleDirectory(force) {
-      this.directoryOpen = typeof force === "boolean" ? force : !this.directoryOpen;
-    },
-
     openSubmit() {
       this.submitState = "form";
-      this.directoryOpen = false;
       this.submitOpen = true;
     },
     syncDialog(dialog) {
@@ -118,14 +104,21 @@ export function createStore() {
         dialog.close();
       }
     },
-    submit(event) {
-      if (transport().type !== "local") return; // browser / Webflow / endpoint POSTs it
+    // Builder mode (local): persist the pin to data/points.json via the dev
+    // writer, then drop it onto the map live. Webflow/endpoint modes let the
+    // form POST natively instead.
+    async submit(event) {
+      if (transport().type !== "local") return;
       event.preventDefault();
-      const data = new FormData(event.target);
-      if (data.get("Website")) return; // honeypot
+      const form = event.target;
+      const data = new FormData(form);
       try {
-        saveLocal(data);
-        event.target.reset();
+        const { point } = await createPin(formToEntry(data));
+        this.points = [...this.points, shapeJsonPoint(point, this.points.length)];
+        rebuildMarkers();
+        this.focus(point.id);
+        form.reset();
+        this.placement = { lat: null, lng: null };
         this.submitState = "done";
       } catch (error) {
         console.error(error);

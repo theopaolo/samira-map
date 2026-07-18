@@ -23,6 +23,7 @@ function shape({ id, title, category, content = [], url, latitude, longitude }, 
     category: cat,
     slug: CATEGORIES[cat].slug,
     glyph: CATEGORIES[cat].glyph,
+    icon: CATEGORIES[cat].icon ?? null,
     media: content.find((block) => block.type === "image" || block.type === "video") || null,
     paragraphs: content.filter((block) => block.type === "text").map((block) => block.value),
     url: url || { type: "inpage", href: `#${safeId}`, label: "Visit page" },
@@ -35,6 +36,10 @@ function fromJson(point, index) {
   const coords = point["gps-coordinates"] || {};
   return shape({ ...point, latitude: coords.latitude, longitude: coords.longitude }, index);
 }
+
+// Shape a single points.json-schema entry into the runtime point used by the
+// UI. Lets the admin form render a freshly-saved pin without a page reload.
+export const shapeJsonPoint = (point, index = 0) => fromJson(point, index);
 
 function fromCmsElement(element, index) {
   const data = element.dataset;

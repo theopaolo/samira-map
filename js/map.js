@@ -3,6 +3,7 @@
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { MAP } from "./config.js";
+import { patchPin } from "./pins-api.js";
 
 let map;
 let store;
@@ -13,9 +14,12 @@ const reduceMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)")
 const round = (value) => Math.round(value * 1e5) / 1e5;
 
 function markerIcon(point, active) {
+  const inner = point.icon
+    ? `<i class="masked-icon" style="--icon:url('${point.icon}')"></i>`
+    : point.glyph;
   return L.divIcon({
     className: `atlas-marker marker-${point.slug}${active ? " is-active" : ""}`,
-    html: `<span aria-hidden="true">${point.glyph}</span>`,
+    html: `<span aria-hidden="true">${inner}</span>`,
     iconSize: [44, 52],
     iconAnchor: [22, 50],
     tooltipAnchor: [0, -44],
@@ -77,11 +81,16 @@ function togglePlacing(on) {
   }
 }
 
-function onAdminDrag(point, marker) {
+async function onAdminDrag(point, marker) {
   const { lat, lng } = marker.getLatLng();
   point.lat = round(lat);
   point.lng = round(lng);
-  showToast(`${point.title} → ${point.lat}, ${point.lng}  (copy into points.json)`);
+  try {
+    await patchPin(point.id, { "gps-coordinates": { latitude: point.lat, longitude: point.lng } });
+    showToast(`Saved ${point.title} → ${point.lat}, ${point.lng}`);
+  } catch (error) {
+    showToast(`Could not save: ${error.message}`);
+  }
 }
 
 function showToast(message) {
@@ -151,4 +160,9 @@ export function initMap(storeRef) {
 
 export function resetView() {
   fitVisible();
+}
+
+// Rebuild all markers after the point set changes (e.g. a pin was just saved).
+export function rebuildMarkers() {
+  buildMarkers();
 }

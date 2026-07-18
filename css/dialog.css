@@ -127,32 +127,6 @@
   resize: vertical;
 }
 
-.submission-consent {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  padding: 13px;
-  border: 1px dashed rgba(16, 46, 63, 0.5);
-  font-size: 14px;
-  line-height: 1.45;
-}
-
-.submission-consent input {
-  width: 20px;
-  height: 20px;
-  flex: none;
-  margin: 0;
-  accent-color: var(--ink);
-}
-
-.submission-honeypot {
-  position: absolute;
-  left: -10000px;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-
 .submission-actions {
   display: flex;
   align-items: center;
