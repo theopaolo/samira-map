@@ -17,38 +17,22 @@
   <body x-data>
     <a class="skip-link" href="#map">Skip to map</a>
 
-    <main class="app-shell">
+    <div class="app-shell">
       <aside class="story-panel" aria-labelledby="story-title">
-        <div class="story-nav">
-          <p
-            class="story-count"
-            aria-live="polite"
-            x-text="$store.atlas.indexLabel"
-          ></p>
-          <div class="story-nav-buttons">
-            <button
-              class="icon-button"
-              type="button"
-              aria-label="Previous place"
-              @click="$store.atlas.move(-1)"
-            >
-              ←
-            </button>
-            <button
-              class="icon-button"
-              type="button"
-              aria-label="Next place"
-              @click="$store.atlas.move(1)"
-            >
-              →
-            </button>
-          </div>
-        </div>
-
         <template x-if="$store.atlas.activePoint">
           <div class="story-body">
             <div class="story-media">
-              <template x-if="$store.atlas.activePoint.media?.type === 'video'">
+              <template x-if="$store.atlas.activePoint.media?.embed">
+                <iframe
+                  :src="$store.atlas.activePoint.media.embed"
+                  :title="$store.atlas.activePoint.media.caption || $store.atlas.activePoint.title"
+                  loading="lazy"
+                  allow="encrypted-media; picture-in-picture; fullscreen"
+                ></iframe>
+              </template>
+              <template
+                x-if="$store.atlas.activePoint.media?.type === 'video' && !$store.atlas.activePoint.media.embed"
+              >
                 <video
                   controls
                   preload="metadata"
@@ -81,7 +65,7 @@
                 <span class="inline-icon" aria-hidden="true">
                   <template x-if="$store.atlas.activePoint.icon">
                     <i
-                      class="masked-icon"
+                      class="category-icon"
                       :style="`--icon:url('${$store.atlas.activePoint.icon}')`"
                     ></i>
                   </template>
@@ -112,97 +96,90 @@
                   <span x-text="$store.atlas.activePoint.url.label"></span>
                   <span aria-hidden="true">↗</span>
                 </a>
-                <a
-                  class="coordinate-link"
-                  target="_blank"
-                  rel="noreferrer"
-                  :href="`https://www.openstreetmap.org/?mlat=${$store.atlas.activePoint.lat}&mlon=${$store.atlas.activePoint.lng}#map=17/${$store.atlas.activePoint.lat}/${$store.atlas.activePoint.lng}`"
-                  x-text="`${$store.atlas.activePoint.lat.toFixed(4)}° N  ${$store.atlas.activePoint.lng.toFixed(4)}° E`"
-                ></a>
               </div>
             </article>
           </div>
         </template>
       </aside>
 
-      <section class="map-section" aria-label="Interactive story map">
-        <div class="map-toolbar" aria-label="Filter map points">
-          <div class="filters" role="group" aria-label="Filter by category">
-            <template x-for="filter in $store.atlas.filters" :key="filter.key">
-              <button
-                class="filter-button"
-                type="button"
-                :class="{ 'is-active': $store.atlas.activeCategory === filter.key }"
-                :aria-pressed="$store.atlas.activeCategory === filter.key"
-                @click="$store.atlas.setCategory(filter.key)"
+      <main class="main-content">
+        <div class="filters" role="group" aria-label="Filter by category">
+          <template x-for="filter in $store.atlas.filters" :key="filter.key">
+            <button
+              class="filter-button"
+              type="button"
+              :class="{ 'is-active': $store.atlas.activeCategory === filter.key }"
+              :aria-pressed="$store.atlas.activeCategory === filter.key"
+              @click="$store.atlas.setCategory(filter.key)"
+            >
+              <span
+                class="filter-icon"
+                :class="'tone-' + filter.tone"
+                aria-hidden="true"
               >
-                <span
-                  class="filter-icon"
-                  :class="'tone-' + filter.tone"
-                  aria-hidden="true"
-                >
-                  <template x-if="filter.icon">
-                    <i class="masked-icon" :style="`--icon:url('${filter.icon}')`"></i>
-                  </template>
-                  <template x-if="!filter.icon">
-                    <span x-text="filter.glyph"></span>
-                  </template>
-                </span>
-                <span x-text="filter.label"></span>
+                <template x-if="filter.icon">
+                  <i
+                    class="category-icon"
+                    :style="`--icon:url('${filter.icon}')`"
+                  ></i>
+                </template>
+                <template x-if="!filter.icon">
+                  <span x-text="filter.glyph"></span>
+                </template>
+              </span>
+              <span x-text="filter.label"></span>
+            </button>
+          </template>
+        </div>
+
+        <section class="map-section" aria-label="Interactive story map">
+          <div id="map" tabindex="0" aria-label="Map of Birżebbuġa"></div>
+          <div class="map-progress" id="map-progress" role="status">
+            Loading map points…
+          </div>
+          <!-- Admin-only authoring entry point (enabled with ?admin). Public
+              visitors request pins by email instead. -->
+          <button
+            class="map-action admin-submit"
+            type="button"
+            x-show="$store.atlas.admin"
+            x-cloak
+            @click="$store.atlas.openSubmit()"
+          >
+            Add a pin
+          </button>
+
+          <!-- Pin placement banner: shown while the contributor is choosing a point. -->
+          <div
+            class="placement-banner"
+            role="status"
+            x-show="$store.atlas.placing"
+            x-cloak
+          >
+            <div>
+              <strong>Click the map to drop your pin</strong>
+              <span x-text="$store.atlas.placementLabel"></span>
+            </div>
+            <div class="placement-actions">
+              <button
+                type="button"
+                class="ghost"
+                @click="$store.atlas.cancelPlacing()"
+              >
+                Cancel
               </button>
-            </template>
+              <button
+                type="button"
+                @click="$store.atlas.confirmPlacement()"
+                :disabled="!$store.atlas.hasPlacement"
+              >
+                Use this location
+              </button>
+            </div>
           </div>
-        </div>
-
-        <div id="map" tabindex="0" aria-label="Map of Birżebbuġa"></div>
-        <div class="map-progress" id="map-progress" role="status">
-          Loading map points…
-        </div>
-        <button class="reset-view" id="reset-view" type="button">
-          Reset view
-        </button>
-        <!-- Admin-only authoring entry point (enabled with ?admin). Public
-             visitors request pins by email instead. -->
-        <button
-          class="reset-view admin-submit"
-          type="button"
-          x-show="$store.atlas.admin"
-          x-cloak
-          @click="$store.atlas.openSubmit()"
-        >
-          Add a pin
-        </button>
-
-        <!-- Pin placement banner: shown while the contributor is choosing a point. -->
-        <div
-          class="placement-banner"
-          role="status"
-          x-show="$store.atlas.placing"
-          x-cloak
-        >
-          <div>
-            <strong>Click the map to drop your pin</strong>
-            <span x-text="$store.atlas.placementLabel"></span>
-          </div>
-          <div class="placement-actions">
-            <button
-              type="button"
-              class="ghost"
-              @click="$store.atlas.cancelPlacing()"
-            >
-              Cancel
-            </button>
-            <button
-              type="button"
-              @click="$store.atlas.confirmPlacement()"
-              :disabled="!$store.atlas.hasPlacement"
-            >
-              Use this location
-            </button>
-          </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
+    </div>
 
     <dialog
       class="submit-dialog"
@@ -318,8 +295,9 @@
             </div>
 
             <div class="submission-actions">
-              <p x-text="$store.atlas.modeNote">
-                Submissions are reviewed before publication.
+              <p>
+                You can drag any saved marker on the map later to fine-tune its
+                position.
               </p>
               <button class="submission-send" type="submit">
                 Save pin <span aria-hidden="true">→</span>
@@ -351,8 +329,6 @@
         </div>
       </div>
     </dialog>
-
-    <div id="map-cms-source" hidden aria-hidden="true"></div>
 
     <noscript
       >This map requires JavaScript to load its places and OpenStreetMap

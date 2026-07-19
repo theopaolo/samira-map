@@ -1,13 +1,14 @@
 :root {
   /* Palette */
+  --primary: #1c3d52;
   --ink: #15273a;
   --ink-deep: #0d1b29;
-  --paper: #efe9da;
+  --paper: #f6f6f6;
   --paper-bright: #fffdf4;
   --sea: #97abd1;
   --water: #aabddf;
   --blue: #5d7aa6;
-  --yellow: #f2d65f;
+  --yellow: #ffea97;
   --coral: #e8654a;
   --sage: #a7c098;
 

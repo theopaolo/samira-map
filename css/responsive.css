@@ -64,19 +64,8 @@
     width: 100%;
   }
 
-  .coordinate-link {
-    text-align: left;
-  }
-
-  .map-toolbar {
-    top: 10px;
-    right: 0;
-    left: 0;
-    max-width: none;
-  }
-
   .filters {
-    padding: 2px 10px 8px;
+    padding: 10px 14px;
   }
 
   .filter-button span:last-child {

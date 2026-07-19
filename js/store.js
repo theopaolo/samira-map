@@ -1,57 +1,32 @@
 // The reactive UI brain: one Alpine store holds all view state and actions.
 // The map module reads this store; the templates render from it. No manual DOM.
-import { FILTERS } from "./config.js";
+import { CATEGORY_LIST } from "./config.js";
 import { createPin, formToEntry } from "./pins-api.js";
 import { shapeJsonPoint } from "./points.js";
-import { rebuildMarkers } from "./map.js";
+import { rebuildMarkers, flyToPoint } from "./map.js";
 
 const round = (value) => Math.round(value * 1e5) / 1e5;
-
-function transport() {
-  const endpoint = window.SHORELINE_ATLAS_CONFIG?.submissionEndpoint?.trim();
-  if (endpoint) return { type: "endpoint", endpoint };
-  if (document.documentElement.hasAttribute("data-wf-site")) return { type: "webflow" };
-  return { type: "local" };
-}
-
-export function transportNote() {
-  const note = {
-    endpoint: "Your contribution will be sent for review.",
-    webflow: "Submitted securely through Webflow for review.",
-    local: "Builder mode: this pin is written to data/points.json — run a build to publish it.",
-  };
-  return note[transport().type];
-}
 
 export function createStore() {
   return {
     points: [],
-    filters: FILTERS,
-    activeCategory: "all",
+    filters: CATEGORY_LIST,
+    activeCategory: null, // null = no filter, every category is shown
     activeId: null,
-    focusToken: 0, // bumped only when a selection should pan the map
-    focusTarget: null, // [lat, lng] captured at focus time so panning never tracks activeId
     submitOpen: false,
     submitState: "form", // "form" | "done" | "error"
-    modeNote: "",
     admin: false,
     placing: false,
     placement: { lat: null, lng: null },
     placementBackup: null,
 
     get visiblePoints() {
-      return this.activeCategory === "all"
-        ? this.points
-        : this.points.filter((point) => point.category === this.activeCategory);
+      return this.activeCategory
+        ? this.points.filter((point) => point.category === this.activeCategory)
+        : this.points;
     },
     get activePoint() {
       return this.points.find((point) => point.id === this.activeId) || null;
-    },
-    get indexLabel() {
-      const list = this.visiblePoints;
-      const position = list.findIndex((point) => point.id === this.activeId) + 1;
-      const pad = (value) => String(value).padStart(2, "0");
-      return list.length ? `${pad(position)} / ${pad(list.length)}` : "—";
     },
     get hasPlacement() {
       return Number.isFinite(this.placement.lat) && Number.isFinite(this.placement.lng);
@@ -72,21 +47,14 @@ export function createStore() {
       this.activeId = id;
       history.replaceState(null, "", `#${id}`);
     },
-    // Select and pan (used by the list, arrows and keyboard).
+    // Select and pan the map to the point.
     focus(id) {
       this.select(id);
-      const point = this.activePoint;
-      if (point) this.focusTarget = [point.lat, point.lng];
-      this.focusToken += 1;
-    },
-    move(step) {
-      const list = this.visiblePoints;
-      if (!list.length) return;
-      const index = list.findIndex((point) => point.id === this.activeId);
-      this.focus(list[(index + step + list.length) % list.length].id);
+      if (this.activePoint) flyToPoint(this.activePoint);
     },
     setCategory(category) {
-      this.activeCategory = category;
+      // Clicking the active filter again clears it, restoring the full set.
+      this.activeCategory = this.activeCategory === category ? null : category;
       if (!this.visiblePoints.some((point) => point.id === this.activeId)) {
         const first = this.visiblePoints[0];
         if (first) this.select(first.id);
@@ -104,11 +72,9 @@ export function createStore() {
         dialog.close();
       }
     },
-    // Builder mode (local): persist the pin to data/points.json via the dev
-    // writer, then drop it onto the map live. Webflow/endpoint modes let the
-    // form POST natively instead.
+    // Persist the pin to data/points.json via the dev writer, then drop it onto
+    // the map live.
     async submit(event) {
-      if (transport().type !== "local") return;
       event.preventDefault();
       const form = event.target;
       const data = new FormData(form);

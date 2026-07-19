@@ -1,15 +1,17 @@
 # Mal-Bajja · By the Bay
 
-An interactive cultural map of Birżebbuġa, Malta. It is a small **Vite + Alpine.js + Leaflet** app: you author the map's pins locally in a builder UI, then run a build to produce a static bundle you can host directly or embed (e.g. in a Webflow page).
+An interactive cultural map of Birżebbuġa, Malta. It is a small **Vite + Alpine.js + Leaflet** app: you author the map's pins locally in a builder UI, then run a build to produce a static bundle that is **served online, embedded in a Webflow page**.
+
+Because it is always online, the map deliberately uses the **CARTO basemap CDN** for tiles — there is no offline requirement, so the bundle stays light rather than shipping local tiles. Everything else (Leaflet, Alpine, fonts, scripts, icons, media) is bundled.
 
 ## Stack
 
-- **Leaflet + CARTO/OpenStreetMap** — the interactive base map and markers. Leaflet ships with the app; only the map tiles are fetched online.
+- **Leaflet + CARTO/OpenStreetMap** — the interactive base map and markers. Leaflet ships with the app; the basemap tiles are fetched from the CARTO CDN at runtime (intentional — see above).
 - **Alpine.js** — declarative UI state (story panel, filters, submit dialog). All rendering reacts to one store, so there is no manual DOM wiring.
 - **Vite** — the dev server (with a pin-writer plugin) and the production build into `dist/`.
 - **ES modules** under `js/` — small, single-responsibility files:
   - `config.js` — map setup and the category list (labels, colour tones, icons, glyph fallbacks) — one source of truth.
-  - `points.js` — loads + normalises points from `data/points.json` (or Webflow CMS attributes).
+  - `points.js` — loads + normalises points from `data/points.json`.
   - `store.js` — the reactive Alpine store: view state, selection, filtering and pin authoring.
   - `map.js` — Leaflet glue; markers, pin placement and admin drag, driven by store effects.
   - `pins-api.js` — client side of the dev-only pin writer (talks to the Vite middleware).
@@ -24,6 +26,8 @@ npm run build    # → dist/ : the static bundle to deploy or embed
 ```
 
 A dev server is required — the app uses ES-module imports that Vite resolves, so opening the files directly (or via a plain static server) will not work while developing. Deployment uses the repo `Dockerfile` (build pack = Dockerfile) on Coolify; the built `dist/` is plain static files.
+
+**Bundle.** CSS is kept lean: the app owns its styles under `css/`, and `piloti/` is trimmed to just its reset (the framework's utilities/variables/responsive layers were unused). CSS minification is on. The built stylesheet is ~30 kB (~10 kB gzipped).
 
 ## Building the map (adding & repositioning pins)
 
@@ -65,40 +69,14 @@ npm run vendor     # re-copy the current node_modules files into vendor/
 
 Run `npm outdated` to check for newer releases.
 
-## Content sources
+## Content & media
 
-The app checks for published Webflow CMS entries in the page first; if none are present, it loads [`data/points.json`](data/points.json). For the builder workflow above, `data/points.json` is the source of truth.
+[`data/points.json`](data/points.json) is the single source of truth for the map's pins. Author the pins in the builder (or edit the file directly), `npm run build`, and deploy the `dist/` folder — no server runtime is required. The rest of the site (about, contact, the grid listing of places) lives directly in Webflow; the map is embedded in it as an iframe.
 
-### Standalone or iframe build
+Pin media comes from URLs:
 
-Author the pins (or edit `data/points.json` directly), `npm run build`, and deploy the `dist/` folder to any static host. No server runtime is required.
-
-### Direct Webflow CMS embed (optional)
-
-Instead of `data/points.json`, points can come from the page's DOM. Create a `Map Entries` CMS Collection and render it in a hidden Collection List on the map page. Give each Collection Item the `data-map-entry` custom attribute, then bind these attributes to its CMS fields:
-
-| Attribute | CMS value |
-|---|---|
-| `data-id` | Slug |
-| `data-title` | Name |
-| `data-category` | `main stories`, `submitted video`, `main location`, or `archival footage` |
-| `data-latitude` | Latitude number |
-| `data-longitude` | Longitude number |
-| `data-content` | Story text |
-| `data-image` | Image URL |
-| `data-image-alt` | Image description |
-| `data-video` | Video URL |
-| `data-video-poster` | Poster URL |
-| `data-video-caption` | Video caption (optional) |
-| `data-url` | Entry or external URL |
-| `data-url-type` | `inpage` or `external` (optional; inferred from the URL if omitted) |
-| `data-url-label` | Link text |
-
-To bind media to real Webflow elements instead of text attributes, the loader also reads child elements inside each `[data-map-entry]`: an `<img data-map-image>` (its `src` and `alt`), an `<a data-map-video href="…">` link, and a `<div data-map-content>` whose text becomes the paragraphs. The `data-*` attributes above take priority; these child elements are the fallback.
-
-The marker icon is derived from `data-category`, so there is no separate icon field to keep in sync in the CMS.
-
-The JavaScript reads these elements with `document.querySelectorAll('[data-map-entry]')`; no CMS token is exposed in the browser.
+- **Images** — any hosted image URL (e.g. an asset uploaded to Webflow), or a file placed under `public/assets/` and referenced by site-root-relative path.
+- **Videos** — paste a YouTube (or Vimeo) link; the story panel embeds it as a player. Direct video file URLs (`.mp4`, `.webm`, …) play in a native `<video>` element instead.
 
 ## Point schema
 

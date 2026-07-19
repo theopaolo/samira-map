@@ -3,6 +3,16 @@
   grid-template-columns: minmax(360px, 430px) minmax(0, 1fr);
   height: 100dvh;
   min-height: 620px;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+/* Right column: filter bar on top, map filling the rest. */
+.main-content {
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  flex-direction: column;
 }
 
 .story-panel {
@@ -23,6 +33,7 @@
 .map-section {
   position: relative;
   z-index: 1;
+  flex: 1;
   min-width: 0;
   min-height: 0;
   overflow: hidden;

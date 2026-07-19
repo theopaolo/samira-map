@@ -15,14 +15,14 @@ const round = (value) => Math.round(value * 1e5) / 1e5;
 
 function markerIcon(point, active) {
   const inner = point.icon
-    ? `<i class="masked-icon" style="--icon:url('${point.icon}')"></i>`
+    ? `<i class="category-icon" style="--icon:url('${point.icon}')"></i>`
     : point.glyph;
   return L.divIcon({
     className: `atlas-marker marker-${point.slug}${active ? " is-active" : ""}`,
     html: `<span aria-hidden="true">${inner}</span>`,
-    iconSize: [44, 52],
-    iconAnchor: [22, 50],
-    tooltipAnchor: [0, -44],
+    iconSize: [38, 38],
+    iconAnchor: [19, 19],
+    tooltipAnchor: [0, -22],
   });
 }
 
@@ -119,17 +119,9 @@ function registerEffects() {
 
   effect(() => {
     const activeId = store.activeId;
-    markers.forEach((marker, id) => {
-      const point = store.points.find((item) => item.id === id);
-      if (point) marker.setIcon(markerIcon(point, id === activeId));
+    store.points.forEach((point) => {
+      markers.get(point.id)?.setIcon(markerIcon(point, point.id === activeId));
     });
-  });
-
-  effect(() => {
-    store.focusToken; // the only dependency, so marker clicks never pan
-    const target = store.focusTarget;
-    if (!store.focusToken || !target) return; // skip the initial run
-    map.flyTo(target, Math.max(map.getZoom(), 15), { duration: reduceMotion() ? 0 : 0.7 });
   });
 
   effect(() => togglePlacing(store.placing));
@@ -158,8 +150,10 @@ export function initMap(storeRef) {
   window.addEventListener("resize", () => map.invalidateSize());
 }
 
-export function resetView() {
-  fitVisible();
+export function flyToPoint(point) {
+  map.flyTo([point.lat, point.lng], Math.max(map.getZoom(), 15), {
+    duration: reduceMotion() ? 0 : 0.7,
+  });
 }
 
 // Rebuild all markers after the point set changes (e.g. a pin was just saved).

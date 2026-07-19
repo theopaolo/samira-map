@@ -43,7 +43,9 @@
   border-color: var(--ink) !important;
   color: var(--ink) !important;
   background: var(--yellow) !important;
-  font: 22px/38px Arial, sans-serif !important;
+  font:
+    22px/38px Arial,
+    sans-serif !important;
 }
 
 .leaflet-control-zoom a:hover {
@@ -51,21 +53,14 @@
   background: var(--ink) !important;
 }
 
-.map-toolbar {
-  position: absolute;
-  z-index: 800;
-  top: 18px;
-  left: 18px;
-  max-width: calc(100% - 36px);
-}
-
 .filters {
+  z-index: 800;
   display: flex;
   align-items: stretch;
-  gap: 7px;
+  gap: 8px;
   max-width: 100%;
   overflow-x: auto;
-  padding: 2px 2px 7px;
+  padding: 12px 18px;
   scrollbar-width: thin;
   scrollbar-color: var(--ink) transparent;
 }
@@ -74,22 +69,22 @@
   display: inline-flex;
   align-items: center;
   flex: none;
-  min-height: 44px;
-  gap: 9px;
-  padding: 5px 12px 5px 6px;
-  border: 1px solid rgba(16, 46, 63, 0.5);
+  gap: 8px;
+  border: 1px solid transparent;
+  padding: unset;
+  padding-inline-end: 8px;
   color: var(--ink);
-  background: rgba(255, 252, 243, 0.93);
-  box-shadow: 0 6px 18px rgba(11, 34, 48, 0.08);
+  background: transparent;
   cursor: pointer;
-  font-size: 13px;
-  font-weight: 700;
   white-space: nowrap;
+  transition-property: color, background;
+  transition-duration: 0.3s;
+  transition-delay: 0.1s;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .filter-button:hover,
 .filter-button.is-active {
-  border-color: var(--ink);
   color: var(--paper-bright);
   background: var(--ink);
 }
@@ -108,20 +103,15 @@
 /* Category tones for filter icons */
 .tone-stories,
 .tone-location {
-  background: var(--yellow);
+  background: var(--primary);
 }
 
 .tone-video {
-  background: #ef9c83;
+  background: var(--primary);
 }
 
 .tone-archive {
-  background: #b7cda9;
-}
-
-.tone-all {
-  background: var(--yellow);
-  letter-spacing: -0.12em;
+  background: var(--primary);
 }
 
 /* Map markers */
@@ -132,73 +122,49 @@
   background: transparent;
 }
 
-/* Custom category icon: a silhouette tinted with the current text colour, so it
-   inherits the marker's hover/active colour-flip just like the text glyph did.
-   The icon file's own colour is ignored — only its shape (alpha) is used. */
-.masked-icon {
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  background: currentColor;
+/* Custom category icon: the SVG carries only the symbol shape; its colour is set
+   here (via mask), so the marker can swap symbol/background colours on hover.
+   Categories differ by shape only — the symbol colour is uniform. */
+.category-icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #ffea97; /* symbol colour — pale yellow, matches the icon art */
   -webkit-mask: var(--icon) center / contain no-repeat;
   mask: var(--icon) center / contain no-repeat;
 }
 
-.atlas-marker .masked-icon {
+.atlas-marker .category-icon {
   width: 22px;
   height: 22px;
 }
 
 .atlas-marker span {
-  position: relative;
   display: grid;
   width: 38px;
   height: 38px;
   place-items: center;
   border: 2px solid var(--paper-bright);
   color: var(--yellow);
-  background: var(--ink);
+  background: var(--primary);
   box-shadow: 0 4px 12px rgba(11, 34, 48, 0.32);
   font-family: Arial, sans-serif;
   font-size: 17px;
-  transition: transform 160ms ease, background 160ms ease, color 160ms ease;
+  transition:
+    transform 160ms ease,
+    background 160ms ease;
 }
 
-.atlas-marker span::after {
-  position: absolute;
-  right: 50%;
-  bottom: -8px;
-  width: 10px;
-  height: 10px;
-  border-right: 2px solid var(--paper-bright);
-  border-bottom: 2px solid var(--paper-bright);
-  content: "";
-  background: var(--ink);
-  transform: translateX(50%) rotate(45deg);
-}
-
-.marker-submitted-video span {
-  color: #ef9c83;
-}
-
-.marker-main-location span {
-  color: #b7cfda;
-}
-
-.marker-archival-footage span {
-  color: #b7cda9;
-}
-
+/* Hover / active: swap the two colours — pale box, navy symbol. */
 .atlas-marker.is-active span,
 .atlas-marker:hover span {
-  color: var(--ink);
-  background: var(--yellow);
+  background: #ffea97;
   transform: translateY(-5px) scale(1.12);
 }
 
-.atlas-marker.is-active span::after,
-.atlas-marker:hover span::after {
-  background: var(--yellow);
+.atlas-marker.is-active .category-icon,
+.atlas-marker:hover .category-icon {
+  background: var(--primary);
 }
 
 .leaflet-tooltip.atlas-tooltip {
@@ -235,7 +201,7 @@
   display: none;
 }
 
-.reset-view {
+.map-action {
   position: absolute;
   z-index: 700;
   right: 14px;
@@ -252,13 +218,12 @@
   text-transform: uppercase;
 }
 
-.reset-view:hover {
+.map-action:hover {
   color: var(--paper-bright);
   background: var(--ink);
 }
 
-/* Sits just left of the reset-view button; only rendered in ?admin mode. */
+/* Only rendered in ?admin mode. */
 .admin-submit {
-  right: auto;
-  left: 14px;
+  right: 14px;
 }

@@ -51,4 +51,3 @@ async function request(method, body) {
 
 export const createPin = (entry) => request("POST", entry);
 export const patchPin = (id, patch) => request("PUT", { id, ...patch });
-export const deletePin = (id) => request("DELETE", { id });

@@ -1,6 +1,7 @@
-// Loads map points from Webflow CMS attributes first, then data/points.json,
-// and normalises every source into one flat shape the UI can render directly.
+// Loads map points from data/points.json and normalises them into the one
+// flat shape the UI renders directly.
 import { CATEGORIES, DEFAULT_CATEGORY } from "./config.js";
+import rawPoints from "../data/points.json";
 
 const slugify = (value = "") =>
   value
@@ -13,10 +14,25 @@ const slugify = (value = "") =>
 const isValid = (point) =>
   Boolean(point.title) && Number.isFinite(point.lat) && Number.isFinite(point.lng);
 
-// Build the canonical point used everywhere else in the app.
-function shape({ id, title, category, content = [], url, latitude, longitude }, index) {
+// YouTube/Vimeo page links can't play inside a <video> tag — derive the
+// embeddable player URL instead. Returns null for direct video files.
+function embedUrl(src = "") {
+  const youtube = src.match(/(?:youtube\.com\/(?:watch\?v=|shorts\/|embed\/)|youtu\.be\/)([\w-]{6,})/);
+  if (youtube) return `https://www.youtube-nocookie.com/embed/${youtube[1]}`;
+  const vimeo = src.match(/vimeo\.com\/(\d+)/);
+  if (vimeo) return `https://player.vimeo.com/video/${vimeo[1]}`;
+  return null;
+}
+
+// Shape a data/points.json entry into the runtime point used by the UI. Also
+// lets the admin form render a freshly-saved pin without a reload.
+export function shapeJsonPoint(point, index = 0) {
+  const { id, title, category, content = [], url } = point;
+  const coords = point["gps-coordinates"] || {};
   const cat = CATEGORIES[category] ? category : DEFAULT_CATEGORY;
   const safeId = id || `${slugify(title)}-${index + 1}`;
+  let media = content.find((block) => block.type === "image" || block.type === "video") || null;
+  if (media?.type === "video") media = { ...media, embed: embedUrl(media.src) };
   return {
     id: safeId,
     title,
@@ -24,70 +40,14 @@ function shape({ id, title, category, content = [], url, latitude, longitude }, 
     slug: CATEGORIES[cat].slug,
     glyph: CATEGORIES[cat].glyph,
     icon: CATEGORIES[cat].icon ?? null,
-    media: content.find((block) => block.type === "image" || block.type === "video") || null,
+    media,
     paragraphs: content.filter((block) => block.type === "text").map((block) => block.value),
     url: url || { type: "inpage", href: `#${safeId}`, label: "Visit page" },
-    lat: Number(latitude),
-    lng: Number(longitude),
+    lat: Number(coords.latitude),
+    lng: Number(coords.longitude),
   };
 }
 
-function fromJson(point, index) {
-  const coords = point["gps-coordinates"] || {};
-  return shape({ ...point, latitude: coords.latitude, longitude: coords.longitude }, index);
-}
-
-// Shape a single points.json-schema entry into the runtime point used by the
-// UI. Lets the admin form render a freshly-saved pin without a page reload.
-export const shapeJsonPoint = (point, index = 0) => fromJson(point, index);
-
-function fromCmsElement(element, index) {
-  const data = element.dataset;
-  const content = [];
-  const image = element.querySelector("[data-map-image]");
-  const imageSource = data.image || image?.currentSrc || image?.src;
-  const videoSource = data.video || element.querySelector("[data-map-video]")?.getAttribute("href");
-
-  if (imageSource) {
-    content.push({ type: "image", src: imageSource, alt: data.imageAlt || image?.alt || "" });
-  } else if (videoSource) {
-    content.push({
-      type: "video",
-      src: videoSource,
-      poster: data.videoPoster || "",
-      caption: data.videoCaption || "",
-    });
-  }
-
-  (data.content || element.querySelector("[data-map-content]")?.textContent || "")
-    .split(/\n\s*\n/)
-    .map((paragraph) => paragraph.trim())
-    .filter(Boolean)
-    .forEach((value) => content.push({ type: "text", value }));
-
-  const href = data.url || `#${data.id || ""}`;
-  return shape(
-    {
-      id: data.id,
-      title: data.title?.trim(),
-      category: data.category,
-      content,
-      url: {
-        type: data.urlType || (href.startsWith("#") ? "inpage" : "external"),
-        href,
-        label: data.urlLabel || "Visit page",
-      },
-      latitude: data.latitude,
-      longitude: data.longitude,
-    },
-    index
-  );
-}
-
-import fallbackPoints from "../data/points.json";
-
-export async function loadPoints() {
-  const cmsPoints = [...document.querySelectorAll("[data-map-entry]")].map(fromCmsElement).filter(isValid);
-  if (cmsPoints.length) return cmsPoints;
-  return fallbackPoints.map(fromJson).filter(isValid);
+export function loadPoints() {
+  return rawPoints.map((point, index) => shapeJsonPoint(point, index)).filter(isValid);
 }

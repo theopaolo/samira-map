@@ -34,10 +34,3 @@ export const DEFAULT_CATEGORY = "main stories";
 export const CATEGORIES = Object.fromEntries(
   CATEGORY_LIST.map((category) => [category.key, category])
 );
-
-// Ordered list rendered as the map legend / filter bar: an "all" pseudo-filter
-// plus every category.
-export const FILTERS = [
-  { key: "all", label: "All places", tone: "all", glyph: "••", icon: null },
-  ...CATEGORY_LIST,
-];

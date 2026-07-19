@@ -1,7 +1,4 @@
-/* Piloti CSS Framework - Generated Entry Point */
+/* Piloti CSS Framework — trimmed to what this app uses.
+   Only the reset is load-bearing; base/variables/utilities/compositions/
+   responsive were unused (the app owns its own tokens and layout in css/). */
 @import url('./reset.css');
-@import url('./base.css');
-@import url('./compositions.css');
-@import url('./variables.css');
-@import url('./utilities.css');
-@import url('./responsive.css');
