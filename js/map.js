@@ -135,6 +135,7 @@ export function initMap(storeRef) {
     minZoom: MAP.minZoom,
     maxZoom: MAP.maxZoom,
     zoomControl: false,
+    attributionControl: false,
   });
   L.tileLayer(MAP.tiles.url, {
     maxZoom: MAP.maxZoom,

@@ -87,6 +87,16 @@
               </div>
 
               <div class="story-footer">
+                <button
+                  class="story-link story-edit"
+                  type="button"
+                  x-show="$store.atlas.admin"
+                  x-cloak
+                  @click="$store.atlas.openEdit($store.atlas.activePoint.id)"
+                >
+                  <span>Edit pin</span>
+                  <span aria-hidden="true">✎</span>
+                </button>
                 <a
                   class="story-link"
                   :href="$store.atlas.activePoint.url.href"
@@ -103,37 +113,36 @@
       </aside>
 
       <main class="main-content">
-        <div class="filters" role="group" aria-label="Filter by category">
-          <template x-for="filter in $store.atlas.filters" :key="filter.key">
-            <button
-              class="filter-button"
-              type="button"
-              :class="{ 'is-active': $store.atlas.activeCategory === filter.key }"
-              :aria-pressed="$store.atlas.activeCategory === filter.key"
-              @click="$store.atlas.setCategory(filter.key)"
-            >
-              <span
-                class="filter-icon"
-                :class="'tone-' + filter.tone"
-                aria-hidden="true"
-              >
-                <template x-if="filter.icon">
-                  <i
-                    class="category-icon"
-                    :style="`--icon:url('${filter.icon}')`"
-                  ></i>
-                </template>
-                <template x-if="!filter.icon">
-                  <span x-text="filter.glyph"></span>
-                </template>
-              </span>
-              <span x-text="filter.label"></span>
-            </button>
-          </template>
-        </div>
-
         <section class="map-section" aria-label="Interactive story map">
           <div id="map" tabindex="0" aria-label="Map of Birżebbuġa"></div>
+          <div class="filters" role="group" aria-label="Filter by category">
+            <template x-for="filter in $store.atlas.filters" :key="filter.key">
+              <button
+                class="filter-button"
+                type="button"
+                :class="{ 'is-active': $store.atlas.activeCategory === filter.key }"
+                :aria-pressed="$store.atlas.activeCategory === filter.key"
+                @click="$store.atlas.setCategory(filter.key)"
+              >
+                <span
+                  class="filter-icon"
+                  :class="'tone-' + filter.tone"
+                  aria-hidden="true"
+                >
+                  <template x-if="filter.icon">
+                    <i
+                      class="category-icon"
+                      :style="`--icon:url('${filter.icon}')`"
+                    ></i>
+                  </template>
+                  <template x-if="!filter.icon">
+                    <span x-text="filter.glyph"></span>
+                  </template>
+                </span>
+                <span x-text="filter.label"></span>
+              </button>
+            </template>
+          </div>
           <div class="map-progress" id="map-progress" role="status">
             Loading map points…
           </div>
@@ -193,7 +202,12 @@
         <header class="submit-header">
           <div>
             <p>Map builder</p>
-            <h2 id="submit-title">Add a pin</h2>
+            <h2
+              id="submit-title"
+              x-text="$store.atlas.editingId ? 'Edit pin' : 'Add a pin'"
+            >
+              Add a pin
+            </h2>
           </div>
           <button
             class="submit-close"
@@ -229,12 +243,17 @@
                   maxlength="120"
                   required
                   autocomplete="off"
+                  x-model="$store.atlas.draft.title"
                 />
               </label>
 
               <label class="submission-field field-span-2">
                 <span>Category *</span>
-                <select name="Category" required>
+                <select
+                  name="Category"
+                  required
+                  x-model="$store.atlas.draft.category"
+                >
                   <option value="">Choose one</option>
                   <option value="main stories">Story or memory</option>
                   <option value="submitted video">Video or audio</option>
@@ -245,16 +264,23 @@
 
               <label class="submission-field field-span-2">
                 <span>Story *</span>
-                <textarea name="Story" rows="6" required></textarea>
+                <textarea
+                  name="Story"
+                  rows="6"
+                  required
+                  x-model="$store.atlas.draft.story"
+                ></textarea>
               </label>
 
               <label class="submission-field field-span-2">
                 <span>Media link</span>
+                <!-- type=text, not url: existing pins use relative asset paths. -->
                 <input
-                  type="url"
+                  type="text"
                   name="Media-link"
                   placeholder="Link to an image or video"
                   inputmode="url"
+                  x-model="$store.atlas.draft.media"
                 />
               </label>
 
@@ -300,7 +326,11 @@
                 position.
               </p>
               <button class="submission-send" type="submit">
-                Save pin <span aria-hidden="true">→</span>
+                <span
+                  x-text="$store.atlas.editingId ? 'Save changes' : 'Save pin'"
+                  >Save pin</span
+                >
+                <span aria-hidden="true">→</span>
               </button>
             </div>
           </form>
@@ -311,9 +341,13 @@
             x-cloak
           >
             <span aria-hidden="true">✓</span>
-            <h3>Pin saved.</h3>
+            <h3
+              x-text="$store.atlas.editingId ? 'Pin updated.' : 'Pin saved.'"
+            >
+              Pin saved.
+            </h3>
             <p>Written to data/points.json. Run a build to publish it.</p>
-            <button type="button" @click="$store.atlas.submitState = 'form'">
+            <button type="button" @click="$store.atlas.openSubmit()">
               Add another pin
             </button>
           </div>

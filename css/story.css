@@ -152,3 +152,12 @@
   color: var(--paper-bright);
   background: var(--ink);
 }
+
+/* Admin-only variant of the story-link, opens the pin editor. */
+.story-edit {
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--ink);
+  cursor: pointer;
+}

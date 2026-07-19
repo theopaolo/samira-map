@@ -7,7 +7,7 @@
   gap: 1rem;
 }
 
-/* Right column: filter bar on top, map filling the rest. */
+/* Right column: map fills the column; the filter bar overlays its top edge. */
 .main-content {
   display: flex;
   min-width: 0;
