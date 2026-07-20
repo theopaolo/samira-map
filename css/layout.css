@@ -23,11 +23,10 @@
   min-height: 0;
   flex-direction: column;
   overflow-y: auto;
-  border-right: 1px solid var(--line);
   background: var(--sea);
-  box-shadow: 8px 0 34px rgba(11, 34, 48, 0.08);
   scrollbar-width: thin;
   scrollbar-color: var(--ink) transparent;
+  border-top-right-radius: 80px 80px;
 }
 
 .map-section {

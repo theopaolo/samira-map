@@ -6,7 +6,7 @@
     "content": [
       {
         "type": "image",
-        "src": "assets/monument.svg",
+        "src": "https://cdn.prod.website-files.com/6a0c27d1857f35d75b7c88d7/6a0c5f4417843c21fff08644_Group%2034.jpg",
         "alt": "Angular concrete monument beside the sea"
       },
       {
@@ -252,26 +252,6 @@
     "gps-coordinates": {
       "latitude": 35.8322,
       "longitude": 14.5627
-    }
-  },
-  {
-    "title": "Un titre d'histoire",
-    "category": "submitted video",
-    "content": [
-      {
-        "type": "text",
-        "value": "L'histoire de ce lieu"
-      }
-    ],
-    "gps-coordinates": {
-      "latitude": 35.86179,
-      "longitude": 14.50659
-    },
-    "id": "un-titre-d-histoire",
-    "url": {
-      "type": "inpage",
-      "href": "#un-titre-d-histoire",
-      "label": "Visit page"
     }
   }
 ]

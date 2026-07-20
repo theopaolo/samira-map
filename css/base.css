@@ -5,11 +5,22 @@ body {
   min-height: 100%;
 }
 
+@font-face {
+  font-family: DMMono; 
+  src: url("public/assets/fonts/DMMono-Regular.woff"); 
+}
+
+
+@font-face {
+  font-family: PPradio; 
+  src: url("public/assets/fonts/PPRadioGrotesk-Black.woff"); 
+}
+
 /* Override Piloti's system-ui default and base colors */
 body {
   min-width: 320px;
   overflow-x: hidden;
-  font-family: inherit;
+  font-family: DMMono;
   color: var(--ink);
   background: var(--paper);
 }
