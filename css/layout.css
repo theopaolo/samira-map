@@ -28,6 +28,10 @@
   scrollbar-color: var(--ink) transparent;
   border-top-right-radius: 80px 80px;
 }
+.arrow-front{
+max-width: 200px;
+margin-top: 40px;
+}
 
 .map-section {
   position: relative;
