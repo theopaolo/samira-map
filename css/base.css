@@ -5,22 +5,28 @@ body {
   min-height: 100%;
 }
 
+/* Self-hosted fonts (public/assets/fonts/ → served at /assets/fonts/).
+   Root-absolute URLs — relative ones break against the bundled stylesheet
+   in production, same as the category icons. */
 @font-face {
-  font-family: DMMono; 
-  src: url("public/assets/fonts/DMMono-Regular.woff"); 
+  font-family: DMMono;
+  src: url("/assets/fonts/DMMono-Regular.woff") format("woff");
+  font-weight: 400;
+  font-display: swap;
 }
 
-
 @font-face {
-  font-family: PPradio; 
-  src: url("public/assets/fonts/PPRadioGrotesk-Black.woff"); 
+  font-family: PPradio;
+  src: url("/assets/fonts/PPRadioGrotesk-Black.woff") format("woff");
+  font-weight: 900;
+  font-display: swap;
 }
 
 /* Override Piloti's system-ui default and base colors */
 body {
   min-width: 320px;
   overflow-x: hidden;
-  font-family: DMMono;
+  font-family: DMMono, "SFMono-Regular", Consolas, monospace;
   color: var(--ink);
   background: var(--paper);
 }

@@ -24,7 +24,7 @@
 .leaflet-control-attribution a {
   color: var(--ink) !important;
 }
-/* 
+/*
 .leaflet-bottom.leaflet-right {
   right: 14px;
   bottom: 54px;
@@ -53,8 +53,13 @@
   background: var(--ink) !important;
 }
 
+/* Overlaid on top of the map */
 .filters {
+  position: absolute;
   z-index: 800;
+  top: 0;
+  right: 0;
+  left: 0;
   display: flex;
   align-items: stretch;
   gap: 8px;
@@ -74,7 +79,7 @@
   padding: unset;
   padding-inline-end: 8px;
   color: var(--ink);
-  background: transparent;
+  background: var(--paper);
   cursor: pointer;
   white-space: nowrap;
   transition-property: color, background;
@@ -144,7 +149,7 @@
   width: 30px;
   height: 30px;
   place-items: center;
-  border:1px solid var(--yellow);
+  border: 1px solid var(--yellow);
   color: var(--yellow);
   background: var(--primary);
   font-family: Arial, sans-serif;

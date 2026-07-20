@@ -41,7 +41,6 @@ export function createStore() {
 
     setPoints(points) {
       this.points = points;
-      if (!this.activeId && points.length) this.activeId = points[0].id;
     },
     // Select without panning (used by marker clicks — the point is already in view).
     select(id) {
@@ -57,7 +56,7 @@ export function createStore() {
     setCategory(category) {
       // Clicking the active filter again clears it, restoring the full set.
       this.activeCategory = this.activeCategory === category ? null : category;
-      if (!this.visiblePoints.some((point) => point.id === this.activeId)) {
+      if (this.activeId && !this.visiblePoints.some((point) => point.id === this.activeId)) {
         const first = this.visiblePoints[0];
         if (first) this.select(first.id);
       }

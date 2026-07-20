@@ -1,3 +1,20 @@
+.story-empty {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem 2rem;
+  color: var(--ink);
+}
+
+.story-empty p {
+  margin: 0;
+  font-family: var(--font-black);
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1.15;
+}
+
 /* Wraps media + content so story-footer pins to bottom */
 .story-body {
   display: flex;

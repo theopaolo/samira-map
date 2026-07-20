@@ -19,6 +19,11 @@
 
     <div class="app-shell">
       <aside class="story-panel" aria-labelledby="story-title">
+        <template x-if="!$store.atlas.activePoint">
+          <div class="story-empty">
+            <p>Select an item on the map to discover the history of this landmark</p>
+          </div>
+        </template>
         <template x-if="$store.atlas.activePoint">
           <div class="story-body">
             <div class="story-media">
