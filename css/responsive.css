@@ -32,7 +32,6 @@
     order: 2;
     min-height: auto;
     overflow: visible;
-    border-top: 1px solid var(--ink);
     border-right: 0;
     box-shadow: none;
   }
@@ -107,7 +106,8 @@
 
 @media (max-width: 430px) {
   .map-section {
-    min-height: 350px;
+    /* min-height: 350px; */
+    max-height: 50vh;
   }
 
   .leaflet-bottom.leaflet-right {
