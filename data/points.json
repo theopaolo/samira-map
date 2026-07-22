@@ -11,11 +11,11 @@
       },
       {
         "type": "text",
-        "value": "A stark abstract sculpture in weathered steel, its angular forms seem to lean towards one another. Most people walk straight past it. Which is extraordinary, because what it marks is the moment the Cold War was ended - right here in Birżebbuġa."
+        "value": "A severe concrete marker facing the harbour. Its changing silhouette has become one of the coast’s most recognisable meeting points."
       },
       {
         "type": "text",
-        "value": "In December 1989, just weeks after the fall of the Berlin Wall, US President George H.W. Bush and Soviet leader Mikhail Gorbachev were supposed to meet on their respective warships anchored in open water off Malta. Then an exceptional storm hit, the plan collapsed, and they ended up sheltering in the bay here at Birżebbuġa, continuing their talks on the Soviet cruise ship Maxim Gorkiy. The press nicknamed it the \"Seasick Summit.\""
+        "value": "This entry brings together personal recollections, planning fragments and photographs made along the waterfront."
       }
     ],
     "url": {
@@ -24,23 +24,23 @@
       "label": "Visit page"
     },
     "gps-coordinates": {
-      "latitude": 35.82711,
-      "longitude": 14.53359
+      "latitude": 35.8249,
+      "longitude": 14.5322
     }
   },
   {
     "id": "pretty-bay-sundays",
-    "title": "Borġ In-Nadur",
-    "category": "main location",
+    "title": "Pretty Bay, on Sundays",
+    "category": "main stories",
     "content": [
       {
         "type": "image",
-        "src": "https://cdn.prod.website-files.com/6a0c27d1857f35d75b7c88d7/6a5f3005c4914cbec0e16189_IMG_0111.JPG",
-        "alt": ""
+        "src": "assets/bay.svg",
+        "alt": "Umbrellas and swimmers along Pretty Bay"
       },
       {
         "type": "text",
-        "value": "Here, at the peak of the valley, sit the ruins of one of the oldest human settlements in Malta and in the world. Borġ in-Nadur was in use between roughly from 3,600 to 700 BC, making it among the most ancient human structures in existence. People lived, worshipped and built here for nearly three thousand years."
+        "value": "A shoreline changes character every Sunday: early swimmers, family tables, music from open car windows and the slow return of fishing boats."
       }
     ],
     "url": {
@@ -49,8 +49,8 @@
       "label": "Open story"
     },
     "gps-coordinates": {
-      "latitude": 35.83043,
-      "longitude": 14.52895
+      "latitude": 35.8276,
+      "longitude": 14.5294
     }
   },
   {
@@ -72,7 +72,7 @@
     "url": {
       "type": "inpage",
       "href": "#freeport-night-shift",
-      "label": "Watch video"
+      "label": "Open story"
     },
     "gps-coordinates": {
       "latitude": 35.8168,
@@ -97,7 +97,7 @@
     "url": {
       "type": "external",
       "href": "https://archive.org/",
-      "label": "View archive source"
+      "label": "Open story"
     },
     "gps-coordinates": {
       "latitude": 35.8275,
@@ -122,7 +122,7 @@
     "url": {
       "type": "inpage",
       "href": "#boats-before-dawn",
-      "label": "Open field note"
+      "label": "Open story"
     },
     "gps-coordinates": {
       "latitude": 35.829,
@@ -131,60 +131,52 @@
   },
   {
     "id": "breakwater-line",
-    "title": "St. George's Bay",
-    "category": "main location",
+    "title": "The Breakwater Line",
+    "category": "main stories",
     "content": [
       {
         "type": "image",
-        "src": "https://cdn.prod.website-files.com/6a0c27d1857f35d75b7c88d7/6a5f2e8307472ee115d83cd3_il-point%20_the%20pier.jpg",
-        "alt": ""
+        "src": "assets/harbour.svg",
+        "alt": "Breakwater stretching into open blue water"
       },
       {
         "type": "text",
-        "value": "For most of the year, this pier is relatively unremarkable. Fishermen dot its length, boats bob quietly in St George's Bay behind it, and it does exactly what a breakwater should do."
-      },
-      {
-        "type": "text",
-        "value": "Once every year, on the first Sunday of August - the pier comes to life. In a tradition that started in 1974, the statue of St Peter, patron saint of Birzebbugia and of fishermen, is carried down to the water and taken out to sea, accompanied by a flotilla of around a hundred private boats, including the band club's very own boat, the procession moves across the bay. It's one of the few feasts in Malta that takes to the water rather than the streets. All to celebrate St Peter who was a fisherman, and Birżebbuġa is a harbor town."
+        "value": "A walk from the last row of houses to the end of the breakwater traces the threshold between working harbour and open sea."
       }
     ],
     "url": {
       "type": "inpage",
       "href": "#breakwater-line",
-      "label": "Follow the route"
+      "label": "Open story"
     },
     "gps-coordinates": {
-      "latitude": 35.82974,
-      "longitude": 14.53181
+      "latitude": 35.8224,
+      "longitude": 14.5387
     }
   },
   {
     "id": "ghar-dalam",
-    "title": "Wied Żembaq",
+    "title": "Għar Dalam",
     "category": "main location",
     "content": [
       {
         "type": "image",
-        "src": "https://cdn.prod.website-files.com/6a0c27d1857f35d75b7c88d7/6a5f319578a250ac3e4fe8dc_B_Bugia-General-3.jpg",
-        "alt": ""
+        "src": "assets/archive.svg",
+        "alt": "Layered rock forms suggesting the entrance to a cave"
       },
       {
         "type": "text",
-        "value": "Wied Żembaq is one of four valleys that converge at Birżebbuġa, carved over millennia by water rushing down toward the sea. It looks quiet now. It has been here, in roughly this form, for longer than almost anything you can imagine."
-      },
-      {
-        "type": "text",
-        "value": "Għar Dalam, literally \"Cave of Darkness,\" sits in the neighbouring valley, Wied Dalam, and is one of the most significant prehistoric sites in the world. The cave is 144 metres long and its layers trace a history going back over half a million years. The lowest layers contain the fossilised bones of dwarf elephants, hippopotami, deer and birds, remnants of a time when Malta was physically connected to Europe by a land bridge, and these animals simply walked here. When the ice melted and the sea rose, they were stranded. Over thousands of years, cut off from the mainland, many evolved according to the Island Rule - a phenomenon were extreme isolation and limited resources cause large animals to grow smaller, and small animals grow larger over time."
+        "value": "A deep-time landmark just inland. The cave’s layers connect the contemporary town to a much longer record of movement and settlement."
       }
     ],
     "url": {
       "type": "external",
       "href": "https://www.openstreetmap.org/?mlat=35.8364&mlon=14.4847#map=17/35.8364/14.4847",
-      "label": "Open location"
+      "label": "Open story"
     },
     "gps-coordinates": {
-      "latitude": 35.83328,
-      "longitude": 14.52066
+      "latitude": 35.8364,
+      "longitude": 14.4847
     }
   },
   {
@@ -205,7 +197,7 @@
     "url": {
       "type": "inpage",
       "href": "#salt-on-the-windows",
-      "label": "Read voices"
+      "label": "Open story"
     },
     "gps-coordinates": {
       "latitude": 35.8308,
@@ -214,27 +206,27 @@
   },
   {
     "id": "seafront-1964",
-    "title": "St. George's Chapel",
-    "category": "main location",
+    "title": "Seafront, Summer 1964",
+    "category": "archival footage",
     "content": [
       {
         "type": "image",
-        "src": "https://cdn.prod.website-files.com/6a0c27d1857f35d75b7c88d7/6a5f2f2a31795eb4b0a00544_St.-George_s-Bay.jpg",
-        "alt": ""
+        "src": "assets/archive.svg",
+        "alt": "Grainy archival view of people on a seafront"
       },
       {
         "type": "text",
-        "value": "St George's Chapel is one of the oldest structures in Birżebbuġa. Its exact origins are unclear, but records confirm it was already standing by 1565. A decade later, the papal inquisitor Pietro Dusina visited from Rome and found it completely abandoned, just a wooden door, a modest altar, no priest and no income. Over the next few decades, it was restored, fell into disuse, was restored again, deconsecrated in 1659, brought back to life in 1682, fell dormant once more, and was finally restored again in 1907. For a small chapel on a quiet bay, it has survived an extraordinary amount of neglect."
+        "value": "An anonymous reel shows deckchairs, improvised shade and a seafront before the container cranes entered the skyline."
       }
     ],
     "url": {
       "type": "external",
       "href": "https://archive.org/",
-      "label": "View archive source"
+      "label": "Open story"
     },
     "gps-coordinates": {
-      "latitude": 35.8298,
-      "longitude": 14.53164
+      "latitude": 35.8262,
+      "longitude": 14.5315
     }
   },
   {
@@ -260,35 +252,6 @@
     "gps-coordinates": {
       "latitude": 35.8322,
       "longitude": 14.5627
-    }
-  },
-  {
-    "title": "Pretty Bay",
-    "category": "main location",
-    "content": [
-      {
-        "type": "image",
-        "src": "https://cdn.prod.website-files.com/6a0c27d1857f35d75b7c88d7/6a27d21a4d29fc5fdfd93371_B%3BBugia_pier2.jpg",
-        "alt": ""
-      },
-      {
-        "type": "text",
-        "value": "Pretty Bay is the beating heart of Birżebbuġa - packed year-round with tourists, teenagers, and community events. But look a little closer and the picture gets complicated."
-      },
-      {
-        "type": "text",
-        "value": "The beach itself is artificial. The sand beneath your feet was dredged up and pumped in during the construction of the Malta Freeport in the late 1980s. Before the Freeport, this stretch of coastline was RAF Kalafrana, a British seaplane and naval base that occupied the bay for much of the 20th century. But the British military presence in Malta goes back much further than that, spanning nearly 200 years of colonial rule. For generations, the natural harbour here, a place that could have anchored a real, rooted community, was physically fenced off from Maltese people and militarised, put to work for British strategic interests rather than the Maltese life."
-      }
-    ],
-    "gps-coordinates": {
-      "latitude": 35.82517,
-      "longitude": 14.52932
-    },
-    "id": "pretty-bay",
-    "url": {
-      "type": "inpage",
-      "href": "#pretty-bay",
-      "label": "Visit page"
     }
   }
 ]

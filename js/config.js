@@ -25,7 +25,7 @@ export const MAP = {
 // See public/assets/icons/README.md.
 export const CATEGORY_LIST = [
   { key: "main stories",     label: "Main stories",     slug: "main-stories",     tone: "stories",  glyph: "▼", icon: "/assets/icons/main-stories.svg" },
-  { key: "submitted video",  label: "Submitted video",  slug: "submitted-video",  tone: "video",    glyph: "♥", icon: "/assets/icons/submitted-video.svg" },
+  // { key: "submitted video",  label: "Submitted video",  slug: "submitted-video",  tone: "video",    glyph: "♥", icon: "/assets/icons/submitted-video.svg" },
   { key: "main location",    label: "Main locations",   slug: "main-location",    tone: "location", glyph: "■", icon: "/assets/icons/main-location.svg" },
   { key: "archival footage", label: "Archival footage", slug: "archival-footage", tone: "archive",  glyph: "★", icon: "/assets/icons/archival-footage.svg" },
 ];
