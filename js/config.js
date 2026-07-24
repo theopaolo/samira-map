@@ -24,14 +24,14 @@ export const MAP = {
 // only the shape matters. Set `icon: null` to fall back to the text `glyph`.
 // See public/assets/icons/README.md.
 export const CATEGORY_LIST = [
-  { key: "main location",    label: "Landmarks",   slug: "main-location",    tone: "location", glyph: "■", icon: "/assets/icons/main-location.svg" },
-  { key: "archival footage", label: "Archival footage", slug: "archival-footage", tone: "archive",  glyph: "★", icon: "/assets/icons/archival-footage.svg" },
-  { key: "main stories",     label: "Stories",     slug: "main-stories",     tone: "stories",  glyph: "▼", icon: "/assets/icons/main-stories.svg" },
+  { key: "landmarks",    label: "Landmarks",   slug: "main-location",    tone: "location", glyph: "■", icon: "/assets/icons/main-location.svg" },
+  { key: "archival footage", label: "Archival Footage", slug: "archival-footage", tone: "archive",  glyph: "★", icon: "/assets/icons/archival-footage.svg" },
+  // { key: "main stories",     label: "Stories",     slug: "main-stories",     tone: "stories",  glyph: "▼", icon: "/assets/icons/main-stories.svg" },
   // { key: "submitted video",  label: "Submitted video",  slug: "submitted-video",  tone: "video",    glyph: "♥", icon: "/assets/icons/submitted-video.svg" },
   
 ];
 
-export const DEFAULT_CATEGORY = "main stories";
+export const DEFAULT_CATEGORY = "landmarks";
 
 // Keyed lookup used when shaping points.
 export const CATEGORIES = Object.fromEntries(

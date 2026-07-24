@@ -98,31 +98,7 @@
       "longitude": 14.5318
     }
   },
-  {
-    "id": "parish-procession-1978",
-    "title": "The Procession, 1978",
-    "category": "archival footage",
-    "content": [
-      {
-        "type": "image",
-        "src": "assets/archive.svg",
-        "alt": "Stylised frame from an archival street procession"
-      },
-      {
-        "type": "text",
-        "value": "Digitised Super 8 fragments follow the festa procession through streets dressed with banners and temporary lights."
-      }
-    ],
-    "url": {
-      "type": "external",
-      "href": "https://archive.org/",
-      "label": "Open story"
-    },
-    "gps-coordinates": {
-      "latitude": 35.8275,
-      "longitude": 14.5267
-    }
-  },
+  
   {
     "id": "boats-before-dawn",
     "title": "Wied Żembaq",
@@ -191,31 +167,6 @@
     }
   },
   
-  {
-    "id": "seafront-1964",
-    "title": "Seafront, Summer 1964",
-    "category": "archival footage",
-    "content": [
-      {
-        "type": "image",
-        "src": "assets/archive.svg",
-        "alt": "Grainy archival view of people on a seafront"
-      },
-      {
-        "type": "text",
-        "value": "An anonymous reel shows deckchairs, improvised shade and a seafront before the container cranes entered the skyline."
-      }
-    ],
-    "url": {
-      "type": "external",
-      "href": "https://archive.org/",
-      "label": "Open story"
-    },
-    "gps-coordinates": {
-      "latitude": 35.8262,
-      "longitude": 14.5315
-    }
-  },
   {
     "id": "st-peters-pool",
     "title": "Knisja ta’ San Ġorġ",
