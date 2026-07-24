@@ -1,7 +1,7 @@
 [
   {
     "id": "cold-war-monument",
-    "title": "Cold War Monument",
+    "title": "End of Cold War Memorial",
     "category": "main location",
     "content": [
       {
@@ -11,11 +11,15 @@
       },
       {
         "type": "text",
-        "value": "A severe concrete marker facing the harbour. Its changing silhouette has become one of the coast’s most recognisable meeting points."
+        "value": "Dan il-monument ifakkar is-Summit ta' Malta ta' Diċembru 1989, meta l-President Amerikan George H.W. Bush u l-mexxej Sovjetiku Mikhail Gorbachev iltaqgħu f'Birżebbuġa għal taħditiet li ġew meqjusa bħala simbolu tat-tmiem tal-Gwerra Bierda."
       },
       {
         "type": "text",
-        "value": "This entry brings together personal recollections, planning fragments and photographs made along the waterfront."
+        "value": "Iż-żewġ mexxejja kienu ppjanaw li jiltaqgħu abbord il-bastimenti tal-gwerra tagħhom ankrati barra minn Malta, iżda maltemp qawwi ġegħelhom ikomplu t-taħditiet fil-Bajja ta' San Ġorġ. Minħabba din il-bidla mhux mistennija, il-ġurnalisti internazzjonali laqqmu l-laqgħa s-\"Seasick Summit\"."
+      },
+      {
+        "type": "text",
+        "value": "Il-monument ingħata fl-2019 mill-iskultur Russu Gregory Pototsky biex ifakkar it-30 anniversarju tas-summit. Il-globu tal-bronż maqsum, imdawwar b'wajer tax-xewk u b'katini tat-tankijiet li jinbidlu f'weraq tar-rand, jissimbolizza kemm il-paċi hija fraġli, kif ukoll it-tama li l-kunflitt jista' jagħti lok għar-rikonċiljazzjoni."
       }
     ],
     "url": {
@@ -24,23 +28,31 @@
       "label": "Visit page"
     },
     "gps-coordinates": {
-      "latitude": 35.8249,
-      "longitude": 14.5322
+      "latitude": 35.82622,
+      "longitude": 14.53326
     }
   },
   {
     "id": "pretty-bay-sundays",
-    "title": "Pretty Bay, on Sundays",
-    "category": "main stories",
+    "title": "Il-Bajja s-Sabiha",
+    "category": "main location",
     "content": [
       {
         "type": "image",
-        "src": "assets/bay.svg",
-        "alt": "Umbrellas and swimmers along Pretty Bay"
+        "src": "https://cdn.prod.website-files.com/6a0c27d1857f35d75b7c88d7/6a27d21a4d29fc5fdfd93371_B%3BBugia_pier2.jpg",
+        "alt": ""
       },
       {
         "type": "text",
-        "value": "A shoreline changes character every Sunday: early swimmers, family tables, music from open car windows and the slow return of fishing boats."
+        "value": "Pretty Bay hija waħda mill-aktar spazji maħbuba f’Birżebbuġa, iżda l-istorja tagħha hija marbuta mill-qrib mal-passat kolonjali ta’ Malta. Il-bajja nnifisha hija artifiċjali, maħluqa bir-ramel li tħaffer mill-qiegħ tal-baħar waqt il-bini tal-Freeport ta’ Malta lejn l-aħħar tas-snin tmenin."
+      },
+      {
+        "type": "text",
+        "value": "Qabel dan, il-bajja kienet okkupata mir-RAF Kalafrana, parti minn preżenza militari Brittanika usa’ li għal ġenerazzjonijiet sħaħ illimitat l-aċċess tal-lokal għall-kosta. Wara l-indipendenza ta’ Malta u l-għeluq tal-bażi Brittanika, il-Freeport ġie żviluppat bħala parti mill-isforz tal-pajjiż biex jibni ekonomija indipendenti."
+      },
+      {
+        "type": "text",
+        "value": "Illum, il-port għadu wieħed miċ-ċentri ewlenin tal-kummerċ fil-Mediterran, filwaqt li r-ramel li ġie rilokat biex jinbena sar Pretty Bay - spazju vibranti għall-mistrieħ, il-laqgħat u l-ħajja tal-komunità."
       }
     ],
     "url": {
@@ -49,24 +61,31 @@
       "label": "Open story"
     },
     "gps-coordinates": {
-      "latitude": 35.8276,
-      "longitude": 14.5294
+      "latitude": 35.82483,
+      "longitude": 14.52954
     }
   },
   {
     "id": "freeport-night-shift",
-    "title": "Night Shift at the Freeport",
-    "category": "submitted video",
+    "title": "Il-Bajja ta' San Ġorġ",
+    "category": "main location",
     "content": [
       {
-        "type": "video",
-        "src": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
-        "poster": "assets/harbour.svg",
-        "caption": "Video component demo — replace this source with the submitted field recording."
+        "type": "image",
+        "src": "https://cdn.prod.website-files.com/6a0c27d1857f35d75b7c88d7/6a5f2e8307472ee115d83cd3_il-point%20_the%20pier.jpg",
+        "alt": ""
       },
       {
         "type": "text",
-        "value": "A short field note about the lights, sounds and repeated movements that shape a night shift by the container terminal."
+        "value": "Għall-parti l-kbira tas-sena, dan il-moll iservi bħala breakwater li jipproteġi l-Bajja ta' San Ġorġ. Iżda kull sena, fl-ewwel Ħadd ta' Awwissu, isir il-punt tat-tluq ta' waħda mit-tradizzjonijiet l-aktar magħrufa ta' Birżebbuġa."
+      },
+      {
+        "type": "text",
+        "value": "Mill-1974 'l hawn, l-istatwa ta' San Pietru, il-qaddis patrun ta' Birżebbuġa u tas-sajjieda, tittieħed fuq il-baħar f'purċissjoni marittima, akkumpanjata minn madwar mitt dgħajsa privata. Hija waħda mill-ftit festi reliġjużi f'Malta li jiġu ċċelebrati fuq il-baħar aktar milli fit-toroq."
+      },
+      {
+        "type": "text",
+        "value": "Meta l-purċissjoni terġa' lura lejn ix-xatt, l-istatwa tinġarr fit-toroq tar-raħal qabel ma terġa' titqiegħed fi Pretty Bay, fejn tibqa' sal-għeluq tal-festa. Għal ftit sigħat kull sena, dan il-moll isir iċ-ċentru taċ-ċelebrazzjonijiet tar-raħal."
       }
     ],
     "url": {
@@ -75,8 +94,8 @@
       "label": "Open story"
     },
     "gps-coordinates": {
-      "latitude": 35.8168,
-      "longitude": 14.5167
+      "latitude": 35.82931,
+      "longitude": 14.5318
     }
   },
   {
@@ -106,17 +125,25 @@
   },
   {
     "id": "boats-before-dawn",
-    "title": "Boats Before Dawn",
-    "category": "submitted video",
+    "title": "Wied Żembaq",
+    "category": "main location",
     "content": [
       {
         "type": "image",
-        "src": "assets/harbour.svg",
-        "alt": "Small boats resting in a sheltered harbour"
+        "src": "https://cdn.prod.website-files.com/6a0c27d1857f35d75b7c88d7/6a5f319578a250ac3e4fe8dc_B_Bugia-General-3.jpg",
+        "alt": ""
       },
       {
         "type": "text",
-        "value": "Two minutes at water level: ropes tapping against masts, first engines starting and a horizon that is only beginning to appear."
+        "value": "Wied Żembaq huwa wieħed mill-erba' widien li jiltaqgħu f'Birżebbuġa, iffurmati tul eluf ta' snin mill-ilma nieżel lejn il-baħar. Fil-qrib jinsab l-Għar Dalam, wieħed mill-aktar siti preistoriċi importanti f'Malta."
+      },
+      {
+        "type": "text",
+        "value": "L-għar jippreserva aktar minn nofs miljun sena ta' storja, inklużi fdalijiet fossilizzati ta' iljunfanti nani, ippopotami u annimali oħra minn żmien meta Malta kienet marbuta mal-kontinent Ewropew permezz ta' pont tal-art."
+      },
+      {
+        "type": "text",
+        "value": "Madwar 7,400 sena ilu, waslu l-ewwel bnedmin minn Sqallija u użaw l-għar bħala kenn, u b'hekk bdiet l-istorja tal-insedjament uman fil-Gżejjer Maltin."
       }
     ],
     "url": {
@@ -125,48 +152,32 @@
       "label": "Open story"
     },
     "gps-coordinates": {
-      "latitude": 35.829,
-      "longitude": 14.526
+      "latitude": 35.83267,
+      "longitude": 14.52281
     }
   },
-  {
-    "id": "breakwater-line",
-    "title": "The Breakwater Line",
-    "category": "main stories",
-    "content": [
-      {
-        "type": "image",
-        "src": "assets/harbour.svg",
-        "alt": "Breakwater stretching into open blue water"
-      },
-      {
-        "type": "text",
-        "value": "A walk from the last row of houses to the end of the breakwater traces the threshold between working harbour and open sea."
-      }
-    ],
-    "url": {
-      "type": "inpage",
-      "href": "#breakwater-line",
-      "label": "Open story"
-    },
-    "gps-coordinates": {
-      "latitude": 35.8224,
-      "longitude": 14.5387
-    }
-  },
+
   {
     "id": "ghar-dalam",
-    "title": "Għar Dalam",
+    "title": "Borġ in-Nadur",
     "category": "main location",
     "content": [
       {
         "type": "image",
-        "src": "assets/archive.svg",
-        "alt": "Layered rock forms suggesting the entrance to a cave"
+        "src": "https://cdn.prod.website-files.com/6a0c27d1857f35d75b7c88d7/6a5f3005c4914cbec0e16189_fee4d6c383eb1d4638edf6f23219c0fd_IMG_0111.jpg",
+        "alt": ""
       },
       {
         "type": "text",
-        "value": "A deep-time landmark just inland. The cave’s layers connect the contemporary town to a much longer record of movement and settlement."
+        "value": "Borġ in-Nadur huwa wieħed mill-eqdem siti preistoriċi f'Malta, b'evidenza ta' attività umana li tmur lura għal bejn is-sena 3600 u s-700 Q.K. Għal kważi tlett elef sena, in-nies għexu, qimu u bnew f'dan il-post."
+      },
+      {
+        "type": "text",
+        "value": "Oriġinarjament tempju Neolitiku, aktar tard inbidel f'insedjament taż-Żmien tal-Bronż u fih l-eqdem fortifikazzjoni magħrufa f'Malta. Il-fuħħar li nstab fis-sit juri rabtiet ma' kulturi oħra tal-Mediterran ħafna qabel il-bidu tal-istorja miktuba."
+      },
+      {
+        "type": "text",
+        "value": "Ħafna mill-oġġetti li nstabu hawn illum jinsabu fil-Mużew Nazzjonali tal-Arkeoloġija fil-Belt Valletta, filwaqt li s-sit innifsu jibqa' protett bħala parti importanti mill-wirt preistoriku ta' Malta."
       }
     ],
     "url": {
@@ -175,35 +186,11 @@
       "label": "Open story"
     },
     "gps-coordinates": {
-      "latitude": 35.8364,
-      "longitude": 14.4847
+      "latitude": 35.83037,
+      "longitude": 14.5291
     }
   },
-  {
-    "id": "salt-on-the-windows",
-    "title": "Salt on the Windows",
-    "category": "main stories",
-    "content": [
-      {
-        "type": "image",
-        "src": "assets/bay.svg",
-        "alt": "Coastal windows facing a bright shoreline"
-      },
-      {
-        "type": "text",
-        "value": "Four residents describe living with the sea as a neighbour: salt, wind, changing views and the constant measure of distance."
-      }
-    ],
-    "url": {
-      "type": "inpage",
-      "href": "#salt-on-the-windows",
-      "label": "Open story"
-    },
-    "gps-coordinates": {
-      "latitude": 35.8308,
-      "longitude": 14.5281
-    }
-  },
+  
   {
     "id": "seafront-1964",
     "title": "Seafront, Summer 1964",
@@ -231,17 +218,25 @@
   },
   {
     "id": "st-peters-pool",
-    "title": "St Peter’s Pool",
+    "title": "Knisja ta’ San Ġorġ",
     "category": "main location",
     "content": [
       {
         "type": "image",
-        "src": "assets/bay.svg",
-        "alt": "Low limestone cliffs surrounding blue water"
+        "src": "https://cdn.prod.website-files.com/6a0c27d1857f35d75b7c88d7/6a5f2f2a31795eb4b0a00544_St.-George_s-Bay.jpg",
+        "alt": ""
       },
       {
         "type": "text",
-        "value": "A natural inlet east of town, recorded here as both a swimming place and a marker in the wider coastal landscape."
+        "value": "Il-Kappella ta' San Ġorġ hija waħda mill-eqdem binjiet f'Birżebbuġa, b'dokumenti li jikkonfermaw li kienet diġà teżisti fl-1565. Matul is-sekli ġiet abbandunata, restawrata u reġgħet infetħet diversi drabi, u b'hekk tirrifletti l-istorja li dejjem inbidlet tar-raħal."
+      },
+      {
+        "type": "text",
+        "value": "Fuq id-daħla tagħha hemm kitba bil-Latin li tgħid li l-kappella ma kinitx toffri ażil lill-maħrubin, kuntrarjament għal ħafna knejjes oħra f'Malta dak iż-żmien."
+      },
+      {
+        "type": "text",
+        "value": "Fl-1714, il-Kavallieri ta' San Ġwann dawru l-kappella b'fortifikazzjoni militari. Illum, hija tfakkar fl-istorja twila ta' Birżebbuġa bħala post ta' qima u port ta' importanza strateġika."
       }
     ],
     "url": {
@@ -250,8 +245,8 @@
       "label": "Open location"
     },
     "gps-coordinates": {
-      "latitude": 35.8322,
-      "longitude": 14.5627
+      "latitude": 35.83062,
+      "longitude": 14.53051
     }
   }
 ]
