@@ -25,7 +25,7 @@
     "url": {
       "type": "inpage",
       "href": "https://www.mal-bajja.com/cold-war-monument",
-      "label": "Visit page"
+      "label": "Żur il-paġna"
     },
     "gps-coordinates": {
       "latitude": 35.82622,
@@ -58,7 +58,7 @@
     "url": {
       "type": "inpage",
       "href": "https://www.mal-bajja.com/il-bajja-s-sabiha",
-      "label": "Open story"
+      "label": "Żur il-paġna"
     },
     "gps-coordinates": {
       "latitude": 35.82483,
@@ -91,7 +91,7 @@
     "url": {
       "type": "inpage",
       "href": "www.mal-bajja.com/il-bajjatasangorg",
-      "label": "Open story"
+      "label": "Żur il-paġna"
     },
     "gps-coordinates": {
       "latitude": 35.82931,
@@ -125,7 +125,7 @@
     "url": {
       "type": "inpage",
       "href": "https://www.mal-bajja.com/wied-zembaq",
-      "label": "Open story"
+      "label": "Żur il-paġna"
     },
     "gps-coordinates": {
       "latitude": 35.83267,
@@ -159,7 +159,7 @@
     "url": {
       "type": "external",
       "href": "https://www.mal-bajja.com/borg-in-nadur",
-      "label": "Open story"
+      "label": "Żur il-paġna"
     },
     "gps-coordinates": {
       "latitude": 35.83037,
@@ -193,7 +193,7 @@
     "url": {
       "type": "external",
       "href": "https://www.mal-bajja.com/knisja-ta-san-gorg",
-      "label": "Open location"
+      "label": "Żur il-paġna"
     },
     "gps-coordinates": {
       "latitude": 35.83062,
