@@ -98,7 +98,6 @@
       "longitude": 14.5318
     }
   },
-  
   {
     "id": "boats-before-dawn",
     "title": "Wied Żembaq",
@@ -132,7 +131,6 @@
       "longitude": 14.52281
     }
   },
-
   {
     "id": "ghar-dalam",
     "title": "Borġ in-Nadur",
@@ -166,7 +164,6 @@
       "longitude": 14.5291
     }
   },
-  
   {
     "id": "st-peters-pool",
     "title": "Knisja ta’ San Ġorġ",
@@ -198,6 +195,106 @@
     "gps-coordinates": {
       "latitude": 35.83062,
       "longitude": 14.53051
+    }
+  },
+  {
+    "title": "Triq San Patrizju",
+    "category": "archival footage",
+    "content": [
+      {
+        "type": "text",
+        "value": "1969 – Maratona minn Ċirkewwa għal Birżebbuġa."
+      }
+    ],
+    "gps-coordinates": {
+      "latitude": 35.82351,
+      "longitude": 14.52896
+    },
+    "id": "triq-san-patrizju",
+    "url": {
+      "type": "inpage",
+      "href": "#triq-san-patrizju",
+      "label": "Visit page"
+    }
+  },
+  {
+    "title": "Forti San Luċjan",
+    "category": "archival footage",
+    "content": [
+      {
+        "type": "text",
+        "value": "Marsaxlokk"
+      }
+    ],
+    "gps-coordinates": {
+      "latitude": 35.83048,
+      "longitude": 14.54324
+    },
+    "id": "forti-san-lucjan",
+    "url": {
+      "type": "inpage",
+      "href": "#forti-san-lucjan",
+      "label": "Visit page"
+    }
+  },
+  {
+    "title": "Il-bajja Ta' San Ġorġ",
+    "category": "archival footage",
+    "content": [
+      {
+        "type": "text",
+        "value": "1992"
+      }
+    ],
+    "gps-coordinates": {
+      "latitude": 35.8298,
+      "longitude": 14.53601
+    },
+    "id": "il-bajja-ta-san-gorg",
+    "url": {
+      "type": "inpage",
+      "href": "#il-bajja-ta-san-gorg",
+      "label": "Visit page"
+    }
+  },
+  {
+    "title": "Ġnien San Ġorġ",
+    "category": "archival footage",
+    "content": [
+      {
+        "type": "text",
+        "value": "1996"
+      }
+    ],
+    "gps-coordinates": {
+      "latitude": 35.82978,
+      "longitude": 14.52987
+    },
+    "id": "gnien-san-gorg",
+    "url": {
+      "type": "inpage",
+      "href": "#gnien-san-gorg",
+      "label": "Visit page"
+    }
+  },
+  {
+    "title": "Borġ In-Nadur",
+    "category": "archival footage",
+    "content": [
+      {
+        "type": "text",
+        "value": "1996"
+      }
+    ],
+    "gps-coordinates": {
+      "latitude": 35.83072,
+      "longitude": 14.52841
+    },
+    "id": "borg-in-nadur",
+    "url": {
+      "type": "inpage",
+      "href": "#borg-in-nadur",
+      "label": "Visit page"
     }
   }
 ]
