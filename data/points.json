@@ -202,6 +202,12 @@
     "category": "archival footage",
     "content": [
       {
+        "type": "video",
+        "src": "https://youtu.be/245Tr54HPmM",
+        "poster": "",
+        "caption": ""
+      },
+      {
         "type": "text",
         "value": "1969 – Maratona minn Ċirkewwa għal Birżebbuġa."
       }
@@ -221,6 +227,12 @@
     "title": "Forti San Luċjan",
     "category": "archival footage",
     "content": [
+      {
+        "type": "video",
+        "src": "https://youtu.be/plFb6u5KkJw",
+        "poster": "",
+        "caption": ""
+      },
       {
         "type": "text",
         "value": "Marsaxlokk"
@@ -242,6 +254,12 @@
     "category": "archival footage",
     "content": [
       {
+        "type": "video",
+        "src": "https://youtu.be/R1syYspGeWo",
+        "poster": "",
+        "caption": ""
+      },
+      {
         "type": "text",
         "value": "1992"
       }
@@ -262,6 +280,12 @@
     "category": "archival footage",
     "content": [
       {
+        "type": "video",
+        "src": "https://youtu.be/ZLJ6ZHCK8dc",
+        "poster": "",
+        "caption": ""
+      },
+      {
         "type": "text",
         "value": "1996"
       }
@@ -281,6 +305,12 @@
     "title": "Borġ In-Nadur",
     "category": "archival footage",
     "content": [
+      {
+        "type": "video",
+        "src": "https://youtu.be/G2C_F566MFQ",
+        "poster": "",
+        "caption": ""
+      },
       {
         "type": "text",
         "value": "1996"
