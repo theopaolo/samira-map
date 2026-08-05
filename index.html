@@ -15,13 +15,18 @@
     <script type="module" src="js/main.js"></script>
   </head>
   <body x-data>
-    <a class="skip-link" href="#map">Skip to map</a>
+    <!-- Public-facing copy is translated: x-text pulls the string for the
+         active language (see js/i18n.js + data/strings.json). The literal text
+         in the tag is the pre-Alpine fallback. Admin-only chrome stays English. -->
+    <a class="skip-link" href="#map" x-text="$store.atlas.t('skipToMap')"
+      >Skip to map</a
+    >
 
     <div class="app-shell">
       <aside class="story-panel" aria-labelledby="story-title">
         <template x-if="!$store.atlas.activePoint">
           <div class="story-empty">
-            <p>Agħżel oġġett fuq il-mappa biex tiskopri l-istorja ta' dan il-punt ta' riferiment</p>
+            <p x-text="$store.atlas.t('storyEmpty')"></p>
             <img class="arrow-front" src="/assets/left-arrow.svg" alt="">
           </div>
         </template>
@@ -55,7 +60,7 @@
               </template>
               <template x-if="!$store.atlas.activePoint.media">
                 <div class="media-placeholder">
-                  <span>No media attached</span>
+                  <span x-text="$store.atlas.t('noMedia')"></span>
                 </div>
               </template>
               <template x-if="$store.atlas.activePoint.media?.caption">
@@ -79,7 +84,7 @@
                     <span x-text="$store.atlas.activePoint.glyph"></span>
                   </template>
                 </span>
-                <span x-text="$store.atlas.activePoint.category"></span>
+                <span x-text="$store.atlas.activePoint.categoryLabel"></span>
               </p>
               <h1 id="story-title" x-text="$store.atlas.activePoint.title"></h1>
 
@@ -103,15 +108,20 @@
                   <span>Edit pin</span>
                   <span aria-hidden="true">✎</span>
                 </button>
-                <a
-                  class="story-link"
-                  :href="$store.atlas.activePoint.url.href"
-                  :target="$store.atlas.activePoint.url.type === 'external' ? '_blank' : null"
-                  :rel="$store.atlas.activePoint.url.type === 'external' ? 'noreferrer' : null"
-                >
-                  <span x-text="$store.atlas.activePoint.url.label"></span>
-                  <span aria-hidden="true">↗</span>
-                </a>
+                <!-- No url on the pin, no link: see shapeUrl() in js/points.js. -->
+                <template x-if="$store.atlas.activePoint.url">
+                  <a
+                    class="story-link"
+                    :href="$store.atlas.activePoint.url.href"
+                    :target="$store.atlas.activePoint.url.type === 'external' ? '_blank' : null"
+                    :rel="$store.atlas.activePoint.url.type === 'external' ? 'noreferrer' : null"
+                  >
+                    <span
+                      x-text="$store.atlas.activePoint.url.label || $store.atlas.t('visitPage')"
+                    ></span>
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                </template>
               </div>
             </article>
           </div>
@@ -119,9 +129,18 @@
       </aside>
 
       <main class="main-content">
-        <section class="map-section" aria-label="Interactive story map">
+        <section
+          class="map-section"
+          :aria-label="$store.atlas.t('mapSectionLabel')"
+          aria-label="Interactive story map"
+        >
           <div id="map" tabindex="0" aria-label="Map of Birżebbuġa"></div>
-          <div class="filters" role="group" aria-label="Filter by category">
+          <div
+            class="filters"
+            role="group"
+            :aria-label="$store.atlas.t('filterByCategory')"
+            aria-label="Filter by category"
+          >
             <template x-for="filter in $store.atlas.filters" :key="filter.key">
               <button
                 class="filter-button"
@@ -149,7 +168,12 @@
               </button>
             </template>
           </div>
-          <div class="map-progress" id="map-progress" role="status">
+          <div
+            class="map-progress"
+            id="map-progress"
+            role="status"
+            x-text="$store.atlas.t('loadingPoints')"
+          >
             Loading map points…
           </div>
           <!-- Admin-only authoring entry point (enabled with ?admin). Public
@@ -163,6 +187,27 @@
           >
             Add a pin
           </button>
+
+          <!-- Admin-only language switch: previews the map in one language and
+               decides which language the editor's fields write to. Same effect
+               as loading the page with ?admin&lang=mt. -->
+          <div
+            class="map-action lang-switch"
+            role="group"
+            aria-label="Content language"
+            x-show="$store.atlas.admin"
+            x-cloak
+          >
+            <template x-for="code in ['en', 'mt']" :key="code">
+              <button
+                type="button"
+                :class="{ 'is-active': $store.atlas.lang === code }"
+                :aria-pressed="$store.atlas.lang === code"
+                @click="$store.atlas.setLang(code)"
+                x-text="code.toUpperCase()"
+              ></button>
+            </template>
+          </div>
 
           <!-- Pin placement banner: shown while the contributor is choosing a point. -->
           <div
@@ -215,14 +260,28 @@
               Add a pin
             </h2>
           </div>
-          <button
-            class="submit-close"
-            type="button"
-            aria-label="Close submission form"
-            @click="$store.atlas.submitOpen = false"
-          >
-            ×
-          </button>
+          <div class="submit-header-actions">
+            <!-- Which language the title/story fields below write to. -->
+            <div class="lang-switch" role="group" aria-label="Editing language">
+              <template x-for="code in ['en', 'mt']" :key="code">
+                <button
+                  type="button"
+                  :class="{ 'is-active': $store.atlas.lang === code }"
+                  :aria-pressed="$store.atlas.lang === code"
+                  @click="$store.atlas.setLang(code)"
+                  x-text="code.toUpperCase()"
+                ></button>
+              </template>
+            </div>
+            <button
+              class="submit-close"
+              type="button"
+              aria-label="Close submission form"
+              @click="$store.atlas.submitOpen = false"
+            >
+              ×
+            </button>
+          </div>
         </header>
 
         <div class="submission-form-shell">
@@ -237,19 +296,26 @@
           >
             <p class="submission-intro">
               Add a place to the map. This writes straight to
-              <code>data/points.json</code> — run a build to publish it.
+              <code>data/points.json</code> — run a build to publish it. Title
+              and story are saved per language: fill them in
+              <strong x-text="$store.atlas.lang === 'mt' ? 'Maltese' : 'English'"
+                >English</strong
+              >, then flip the EN / MT switch above and fill in the other one.
             </p>
 
             <div class="submission-grid">
               <label class="submission-field field-span-2">
-                <span>Story title *</span>
+                <span
+                  x-text="`Story title (${$store.atlas.lang.toUpperCase()}) *`"
+                  >Story title *</span
+                >
                 <input
                   type="text"
                   name="Story-title"
                   maxlength="120"
-                  required
                   autocomplete="off"
-                  x-model="$store.atlas.draft.title"
+                  :required="!$store.atlas.draft.title[$store.atlas.otherLang]"
+                  x-model="$store.atlas.draft.title[$store.atlas.lang]"
                 />
               </label>
 
@@ -261,20 +327,21 @@
                   x-model="$store.atlas.draft.category"
                 >
                   <option value="">Choose one</option>
-                  <!-- <option value="main stories">Story or memory</option> -->
-                  <!-- <option value="submitted video">Video or audio</option> -->
+                  <!-- Values are the category keys from js/config.js. -->
                   <option value="archival footage">Archival material</option>
-                  <option value="punt ta' riferiment">Landmarks</option>
+                  <option value="landmarks">Landmarks</option>
                 </select>
               </label>
 
               <label class="submission-field field-span-2">
-                <span>Story *</span>
+                <span x-text="`Story (${$store.atlas.lang.toUpperCase()}) *`"
+                  >Story *</span
+                >
                 <textarea
                   name="Story"
                   rows="6"
-                  required
-                  x-model="$store.atlas.draft.story"
+                  :required="!$store.atlas.draft.story[$store.atlas.otherLang]"
+                  x-model="$store.atlas.draft.story[$store.atlas.lang]"
                 ></textarea>
               </label>
 
@@ -309,16 +376,6 @@
                     <span aria-hidden="true">↗</span>
                   </button>
                 </div>
-                <input
-                  type="hidden"
-                  name="Latitude"
-                  :value="$store.atlas.placement.lat ?? ''"
-                />
-                <input
-                  type="hidden"
-                  name="Longitude"
-                  :value="$store.atlas.placement.lng ?? ''"
-                />
                 <p class="location-hint">
                   Click the map to drop the pin, then drag it to fine-tune. You
                   can also drag any saved marker later to reposition it.
@@ -370,9 +427,13 @@
       </div>
     </dialog>
 
-    <noscript
-      >This map requires JavaScript to load its places and OpenStreetMap
-      view.</noscript
-    >
+    <!-- Both languages: JavaScript is what resolves the active one. -->
+    <noscript>
+      <p>This map requires JavaScript to load its places and OpenStreetMap view.</p>
+      <p lang="mt">
+        Din il-mappa teħtieġ JavaScript biex tgħabbi l-postijiet u l-veduta ta'
+        OpenStreetMap.
+      </p>
+    </noscript>
   </body>
 </html>

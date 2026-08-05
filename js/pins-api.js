@@ -12,26 +12,26 @@ const mediaBlock = (src) =>
     ? { type: "video", src, poster: "", caption: "" }
     : { type: "image", src, alt: "" };
 
-// Map the authoring form's fields onto the data/points.json schema. The server
-// fills in a unique `id` and a default `url`.
-export function formToEntry(formData) {
-  const get = (name) => (formData.get(name) || "").toString().trim();
+const trimPair = (pair) => ({ en: (pair.en || "").trim(), mt: (pair.mt || "").trim() });
+
+// Map the editor's draft onto the data/points.json schema. Both languages are
+// written in one go: the story is a single text block holding an { en, mt }
+// pair, and paragraphs are split per language at render time. The server fills
+// in a unique `id` and a default `url`.
+export function draftToEntry(draft, placement) {
   const content = [];
-  const media = get("Media-link");
+  const media = (draft.media || "").trim();
   if (media) content.push(mediaBlock(media));
-  get("Story")
-    .split(/\n\s*\n/)
-    .map((paragraph) => paragraph.trim())
-    .filter(Boolean)
-    .forEach((value) => content.push({ type: "text", value }));
+  const story = trimPair(draft.story);
+  if (story.en || story.mt) content.push({ type: "text", value: story });
 
   return {
-    title: get("Story-title"),
-    category: get("Category") || DEFAULT_CATEGORY,
+    title: trimPair(draft.title),
+    category: draft.category || DEFAULT_CATEGORY,
     content,
     "gps-coordinates": {
-      latitude: Number(formData.get("Latitude")),
-      longitude: Number(formData.get("Longitude")),
+      latitude: Number(placement.lat),
+      longitude: Number(placement.lng),
     },
   };
 }

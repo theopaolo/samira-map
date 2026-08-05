@@ -2,6 +2,7 @@ import Alpine from "alpinejs";
 import { loadPoints } from "./points.js";
 import { createStore } from "./store.js";
 import { initMap } from "./map.js";
+import { resolveLang, t } from "./i18n.js";
 
 window.Alpine = Alpine;
 Alpine.store("atlas", createStore());
@@ -10,6 +11,9 @@ Alpine.store("atlas", createStore());
 // and mutate *it*, or the templates never update.
 const store = Alpine.store("atlas");
 store.admin = new URLSearchParams(location.search).has("admin");
+// ?lang=mt / ?mt wins, otherwise the browser language decides.
+store.lang = resolveLang();
+document.documentElement.lang = store.lang;
 
 Alpine.start();
 
@@ -23,10 +27,7 @@ try {
 
   document
     .querySelector("#map")
-    .setAttribute(
-      "aria-label",
-      `Map of Birżebbuġa with ${points.length} story points`,
-    );
+    .setAttribute("aria-label", t("mapLabelCount", store.lang, { count: points.length }));
 
   initMap(store);
 } catch (error) {
@@ -34,7 +35,6 @@ try {
   document.querySelector("#map-progress")?.classList.add("is-hidden");
   const message = document.createElement("p");
   message.className = "load-error";
-  message.textContent =
-    "The atlas could not load. Start a local web server and check your connection, then refresh the page.";
+  message.textContent = t("loadError", store.lang);
   document.querySelector("#map").replaceChildren(message);
 }

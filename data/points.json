@@ -1,8 +1,11 @@
 [
   {
     "id": "cold-war-monument",
-    "title": "End of Cold War Memorial",
-    "category": "main location",
+    "title": {
+      "en": "End of Cold War Memorial",
+      "mt": "Monument ta' Tmiem il-Gwerra Bierda"
+    },
+    "category": "landmarks",
     "content": [
       {
         "type": "image",
@@ -11,21 +14,18 @@
       },
       {
         "type": "text",
-        "value": "Dan il-monument ifakkar is-Summit ta' Malta ta' Diċembru 1989, meta l-President Amerikan George H.W. Bush u l-mexxej Sovjetiku Mikhail Gorbachev iltaqgħu f'Birżebbuġa għal taħditiet li ġew meqjusa bħala simbolu tat-tmiem tal-Gwerra Bierda."
-      },
-      {
-        "type": "text",
-        "value": "Iż-żewġ mexxejja kienu ppjanaw li jiltaqgħu abbord il-bastimenti tal-gwerra tagħhom ankrati barra minn Malta, iżda maltemp qawwi ġegħelhom ikomplu t-taħditiet fil-Bajja ta' San Ġorġ. Minħabba din il-bidla mhux mistennija, il-ġurnalisti internazzjonali laqqmu l-laqgħa s-\"Seasick Summit\"."
-      },
-      {
-        "type": "text",
-        "value": "Il-monument ingħata fl-2019 mill-iskultur Russu Gregory Pototsky biex ifakkar it-30 anniversarju tas-summit. Il-globu tal-bronż maqsum, imdawwar b'wajer tax-xewk u b'katini tat-tankijiet li jinbidlu f'weraq tar-rand, jissimbolizza kemm il-paċi hija fraġli, kif ukoll it-tama li l-kunflitt jista' jagħti lok għar-rikonċiljazzjoni."
+        "value": {
+          "en": "This monument commemorates the Malta Summit of December 1989, when American President George H.W. Bush and Soviet leader Mikhail Gorbachev met in Birżebbuġa for talks that came to be seen as a symbol of the end of the Cold War.\n\nThe two leaders had planned to meet aboard their warships anchored off Malta, but heavy weather forced them to continue the talks in St George's Bay. Because of this unexpected change, international journalists nicknamed the meeting the \"Seasick Summit\".\n\nThe monument was donated in 2019 by the Russian sculptor Gregory Pototsky to mark the 30th anniversary of the summit. Its split bronze globe, wrapped in barbed wire and with tank tracks turning into laurel leaves, symbolises both how fragile peace is and the hope that conflict can give way to reconciliation.",
+          "mt": "Dan il-monument ifakkar is-Summit ta' Malta ta' Diċembru 1989, meta l-President Amerikan George H.W. Bush u l-mexxej Sovjetiku Mikhail Gorbachev iltaqgħu f'Birżebbuġa għal taħditiet li ġew meqjusa bħala simbolu tat-tmiem tal-Gwerra Bierda.\n\nIż-żewġ mexxejja kienu ppjanaw li jiltaqgħu abbord il-bastimenti tal-gwerra tagħhom ankrati barra minn Malta, iżda maltemp qawwi ġegħelhom ikomplu t-taħditiet fil-Bajja ta' San Ġorġ. Minħabba din il-bidla mhux mistennija, il-ġurnalisti internazzjonali laqqmu l-laqgħa s-\"Seasick Summit\".\n\nIl-monument ingħata fl-2019 mill-iskultur Russu Gregory Pototsky biex ifakkar it-30 anniversarju tas-summit. Il-globu tal-bronż maqsum, imdawwar b'wajer tax-xewk u b'katini tat-tankijiet li jinbidlu f'weraq tar-rand, jissimbolizza kemm il-paċi hija fraġli, kif ukoll it-tama li l-kunflitt jista' jagħti lok għar-rikonċiljazzjoni."
+        }
       }
     ],
     "url": {
-      "type": "inpage",
       "href": "https://www.mal-bajja.com/cold-war-monument",
-      "label": "Żur il-paġna"
+      "label": {
+        "en": "Visit page",
+        "mt": "Żur il-paġna"
+      }
     },
     "gps-coordinates": {
       "latitude": 35.82622,
@@ -34,8 +34,11 @@
   },
   {
     "id": "pretty-bay-sundays",
-    "title": "Il-Bajja s-Sabiha",
-    "category": "main location",
+    "title": {
+      "en": "Pretty Bay",
+      "mt": "Il-Bajja s-Sabiha"
+    },
+    "category": "landmarks",
     "content": [
       {
         "type": "image",
@@ -44,21 +47,18 @@
       },
       {
         "type": "text",
-        "value": "Pretty Bay hija waħda mill-aktar spazji maħbuba f’Birżebbuġa, iżda l-istorja tagħha hija marbuta mill-qrib mal-passat kolonjali ta’ Malta. Il-bajja nnifisha hija artifiċjali, maħluqa bir-ramel li tħaffer mill-qiegħ tal-baħar waqt il-bini tal-Freeport ta’ Malta lejn l-aħħar tas-snin tmenin."
-      },
-      {
-        "type": "text",
-        "value": "Qabel dan, il-bajja kienet okkupata mir-RAF Kalafrana, parti minn preżenza militari Brittanika usa’ li għal ġenerazzjonijiet sħaħ illimitat l-aċċess tal-lokal għall-kosta. Wara l-indipendenza ta’ Malta u l-għeluq tal-bażi Brittanika, il-Freeport ġie żviluppat bħala parti mill-isforz tal-pajjiż biex jibni ekonomija indipendenti."
-      },
-      {
-        "type": "text",
-        "value": "Illum, il-port għadu wieħed miċ-ċentri ewlenin tal-kummerċ fil-Mediterran, filwaqt li r-ramel li ġie rilokat biex jinbena sar Pretty Bay - spazju vibranti għall-mistrieħ, il-laqgħat u l-ħajja tal-komunità."
+        "value": {
+          "en": "Pretty Bay is one of the best-loved spaces in Birżebbuġa, but its history is closely tied to Malta's colonial past. The beach itself is artificial, created with sand dredged from the seabed during the construction of the Malta Freeport in the late 1980s.\n\nBefore that, the bay was occupied by RAF Kalafrana, part of a wider British military presence that for generations limited local access to the coast. After Malta's independence and the closure of the British base, the Freeport was developed as part of the country's effort to build an independent economy.\n\nToday the port is still one of the main centres of trade in the Mediterranean, while the sand that was moved to build it became Pretty Bay — a lively space for rest, meeting and community life.",
+          "mt": "Pretty Bay hija waħda mill-aktar spazji maħbuba f’Birżebbuġa, iżda l-istorja tagħha hija marbuta mill-qrib mal-passat kolonjali ta’ Malta. Il-bajja nnifisha hija artifiċjali, maħluqa bir-ramel li tħaffer mill-qiegħ tal-baħar waqt il-bini tal-Freeport ta’ Malta lejn l-aħħar tas-snin tmenin.\n\nQabel dan, il-bajja kienet okkupata mir-RAF Kalafrana, parti minn preżenza militari Brittanika usa’ li għal ġenerazzjonijiet sħaħ illimitat l-aċċess tal-lokal għall-kosta. Wara l-indipendenza ta’ Malta u l-għeluq tal-bażi Brittanika, il-Freeport ġie żviluppat bħala parti mill-isforz tal-pajjiż biex jibni ekonomija indipendenti.\n\nIllum, il-port għadu wieħed miċ-ċentri ewlenin tal-kummerċ fil-Mediterran, filwaqt li r-ramel li ġie rilokat biex jinbena sar Pretty Bay - spazju vibranti għall-mistrieħ, il-laqgħat u l-ħajja tal-komunità."
+        }
       }
     ],
     "url": {
-      "type": "inpage",
       "href": "https://www.mal-bajja.com/il-bajja-s-sabiha",
-      "label": "Żur il-paġna"
+      "label": {
+        "en": "Visit page",
+        "mt": "Żur il-paġna"
+      }
     },
     "gps-coordinates": {
       "latitude": 35.82483,
@@ -67,8 +67,11 @@
   },
   {
     "id": "freeport-night-shift",
-    "title": "Il-Bajja ta' San Ġorġ",
-    "category": "main location",
+    "title": {
+      "en": "St George's Bay",
+      "mt": "Il-Bajja ta' San Ġorġ"
+    },
+    "category": "landmarks",
     "content": [
       {
         "type": "image",
@@ -77,21 +80,18 @@
       },
       {
         "type": "text",
-        "value": "Għall-parti l-kbira tas-sena, dan il-moll iservi bħala breakwater li jipproteġi l-Bajja ta' San Ġorġ. Iżda kull sena, fl-ewwel Ħadd ta' Awwissu, isir il-punt tat-tluq ta' waħda mit-tradizzjonijiet l-aktar magħrufa ta' Birżebbuġa."
-      },
-      {
-        "type": "text",
-        "value": "Mill-1974 'l hawn, l-istatwa ta' San Pietru, il-qaddis patrun ta' Birżebbuġa u tas-sajjieda, tittieħed fuq il-baħar f'purċissjoni marittima, akkumpanjata minn madwar mitt dgħajsa privata. Hija waħda mill-ftit festi reliġjużi f'Malta li jiġu ċċelebrati fuq il-baħar aktar milli fit-toroq."
-      },
-      {
-        "type": "text",
-        "value": "Meta l-purċissjoni terġa' lura lejn ix-xatt, l-istatwa tinġarr fit-toroq tar-raħal qabel ma terġa' titqiegħed fi Pretty Bay, fejn tibqa' sal-għeluq tal-festa. Għal ftit sigħat kull sena, dan il-moll isir iċ-ċentru taċ-ċelebrazzjonijiet tar-raħal."
+        "value": {
+          "en": "For most of the year, this pier serves as a breakwater protecting St George's Bay. But every year, on the first Sunday of August, it becomes the starting point of one of Birżebbuġa's best-known traditions.\n\nSince 1974, the statue of St Peter, the patron saint of Birżebbuġa and of fishermen, has been taken out to sea in a maritime procession accompanied by around a hundred private boats. It is one of the few religious feasts in Malta celebrated at sea rather than in the streets.\n\nWhen the procession returns to shore, the statue is carried through the village streets before being set down again at Pretty Bay, where it stays until the feast closes. For a few hours each year, this pier becomes the centre of the village's celebrations.",
+          "mt": "Għall-parti l-kbira tas-sena, dan il-moll iservi bħala breakwater li jipproteġi l-Bajja ta' San Ġorġ. Iżda kull sena, fl-ewwel Ħadd ta' Awwissu, isir il-punt tat-tluq ta' waħda mit-tradizzjonijiet l-aktar magħrufa ta' Birżebbuġa.\n\nMill-1974 'l hawn, l-istatwa ta' San Pietru, il-qaddis patrun ta' Birżebbuġa u tas-sajjieda, tittieħed fuq il-baħar f'purċissjoni marittima, akkumpanjata minn madwar mitt dgħajsa privata. Hija waħda mill-ftit festi reliġjużi f'Malta li jiġu ċċelebrati fuq il-baħar aktar milli fit-toroq.\n\nMeta l-purċissjoni terġa' lura lejn ix-xatt, l-istatwa tinġarr fit-toroq tar-raħal qabel ma terġa' titqiegħed fi Pretty Bay, fejn tibqa' sal-għeluq tal-festa. Għal ftit sigħat kull sena, dan il-moll isir iċ-ċentru taċ-ċelebrazzjonijiet tar-raħal."
+        }
       }
     ],
     "url": {
-      "type": "inpage",
       "href": "www.mal-bajja.com/il-bajjatasangorg",
-      "label": "Żur il-paġna"
+      "label": {
+        "en": "Visit page",
+        "mt": "Żur il-paġna"
+      }
     },
     "gps-coordinates": {
       "latitude": 35.82931,
@@ -100,8 +100,11 @@
   },
   {
     "id": "boats-before-dawn",
-    "title": "Wied Żembaq",
-    "category": "main location",
+    "title": {
+      "en": "Wied Żembaq",
+      "mt": "Wied Żembaq"
+    },
+    "category": "landmarks",
     "content": [
       {
         "type": "image",
@@ -110,21 +113,18 @@
       },
       {
         "type": "text",
-        "value": "Wied Żembaq huwa wieħed mill-erba' widien li jiltaqgħu f'Birżebbuġa, iffurmati tul eluf ta' snin mill-ilma nieżel lejn il-baħar. Fil-qrib jinsab l-Għar Dalam, wieħed mill-aktar siti preistoriċi importanti f'Malta."
-      },
-      {
-        "type": "text",
-        "value": "L-għar jippreserva aktar minn nofs miljun sena ta' storja, inklużi fdalijiet fossilizzati ta' iljunfanti nani, ippopotami u annimali oħra minn żmien meta Malta kienet marbuta mal-kontinent Ewropew permezz ta' pont tal-art."
-      },
-      {
-        "type": "text",
-        "value": "Madwar 7,400 sena ilu, waslu l-ewwel bnedmin minn Sqallija u użaw l-għar bħala kenn, u b'hekk bdiet l-istorja tal-insedjament uman fil-Gżejjer Maltin."
+        "value": {
+          "en": "Wied Żembaq is one of the four valleys that meet in Birżebbuġa, formed over thousands of years by water running down to the sea. Nearby lies Għar Dalam, one of the most important prehistoric sites in Malta.\n\nThe cave preserves more than half a million years of history, including the fossilised remains of dwarf elephants, hippopotami and other animals from a time when Malta was joined to the European mainland by a land bridge.\n\nAround 7,400 years ago the first humans arrived from Sicily and used the cave as shelter, beginning the story of human settlement in the Maltese Islands.",
+          "mt": "Wied Żembaq huwa wieħed mill-erba' widien li jiltaqgħu f'Birżebbuġa, iffurmati tul eluf ta' snin mill-ilma nieżel lejn il-baħar. Fil-qrib jinsab l-Għar Dalam, wieħed mill-aktar siti preistoriċi importanti f'Malta.\n\nL-għar jippreserva aktar minn nofs miljun sena ta' storja, inklużi fdalijiet fossilizzati ta' iljunfanti nani, ippopotami u annimali oħra minn żmien meta Malta kienet marbuta mal-kontinent Ewropew permezz ta' pont tal-art.\n\nMadwar 7,400 sena ilu, waslu l-ewwel bnedmin minn Sqallija u użaw l-għar bħala kenn, u b'hekk bdiet l-istorja tal-insedjament uman fil-Gżejjer Maltin."
+        }
       }
     ],
     "url": {
-      "type": "inpage",
       "href": "https://www.mal-bajja.com/wied-zembaq",
-      "label": "Żur il-paġna"
+      "label": {
+        "en": "Visit page",
+        "mt": "Żur il-paġna"
+      }
     },
     "gps-coordinates": {
       "latitude": 35.83267,
@@ -133,8 +133,11 @@
   },
   {
     "id": "ghar-dalam",
-    "title": "Borġ in-Nadur",
-    "category": "main location",
+    "title": {
+      "en": "Borġ in-Nadur",
+      "mt": "Borġ in-Nadur"
+    },
+    "category": "landmarks",
     "content": [
       {
         "type": "image",
@@ -143,21 +146,18 @@
       },
       {
         "type": "text",
-        "value": "Borġ in-Nadur huwa wieħed mill-eqdem siti preistoriċi f'Malta, b'evidenza ta' attività umana li tmur lura għal bejn is-sena 3600 u s-700 Q.K. Għal kważi tlett elef sena, in-nies għexu, qimu u bnew f'dan il-post."
-      },
-      {
-        "type": "text",
-        "value": "Oriġinarjament tempju Neolitiku, aktar tard inbidel f'insedjament taż-Żmien tal-Bronż u fih l-eqdem fortifikazzjoni magħrufa f'Malta. Il-fuħħar li nstab fis-sit juri rabtiet ma' kulturi oħra tal-Mediterran ħafna qabel il-bidu tal-istorja miktuba."
-      },
-      {
-        "type": "text",
-        "value": "Ħafna mill-oġġetti li nstabu hawn illum jinsabu fil-Mużew Nazzjonali tal-Arkeoloġija fil-Belt Valletta, filwaqt li s-sit innifsu jibqa' protett bħala parti importanti mill-wirt preistoriku ta' Malta."
+        "value": {
+          "en": "Borġ in-Nadur is one of the oldest prehistoric sites in Malta, with evidence of human activity dating back to between 3600 and 700 BC. For almost three thousand years, people lived, worshipped and built in this place.\n\nOriginally a Neolithic temple, it was later turned into a Bronze Age settlement and holds the oldest known fortification in Malta. Pottery found on the site shows links with other Mediterranean cultures long before the beginning of written history.\n\nMost of the objects found here are now in the National Museum of Archaeology in Valletta, while the site itself remains protected as an important part of Malta's prehistoric heritage.",
+          "mt": "Borġ in-Nadur huwa wieħed mill-eqdem siti preistoriċi f'Malta, b'evidenza ta' attività umana li tmur lura għal bejn is-sena 3600 u s-700 Q.K. Għal kważi tlett elef sena, in-nies għexu, qimu u bnew f'dan il-post.\n\nOriġinarjament tempju Neolitiku, aktar tard inbidel f'insedjament taż-Żmien tal-Bronż u fih l-eqdem fortifikazzjoni magħrufa f'Malta. Il-fuħħar li nstab fis-sit juri rabtiet ma' kulturi oħra tal-Mediterran ħafna qabel il-bidu tal-istorja miktuba.\n\nĦafna mill-oġġetti li nstabu hawn illum jinsabu fil-Mużew Nazzjonali tal-Arkeoloġija fil-Belt Valletta, filwaqt li s-sit innifsu jibqa' protett bħala parti importanti mill-wirt preistoriku ta' Malta."
+        }
       }
     ],
     "url": {
-      "type": "external",
       "href": "https://www.mal-bajja.com/borg-in-nadur",
-      "label": "Żur il-paġna"
+      "label": {
+        "en": "Visit page",
+        "mt": "Żur il-paġna"
+      }
     },
     "gps-coordinates": {
       "latitude": 35.83037,
@@ -166,8 +166,11 @@
   },
   {
     "id": "st-peters-pool",
-    "title": "Il-Kappella ta’ San Ġorġ",
-    "category": "punt ta' riferiment",
+    "title": {
+      "en": "St George's Chapel",
+      "mt": "Il-Kappella ta’ San Ġorġ"
+    },
+    "category": "landmarks",
     "content": [
       {
         "type": "image",
@@ -176,21 +179,18 @@
       },
       {
         "type": "text",
-        "value": "Il-Kappella ta' San Ġorġ hija waħda mill-eqdem binjiet f'Birżebbuġa, b'dokumenti li jikkonfermaw li kienet diġà teżisti fl-1565. Matul is-sekli ġiet abbandunata, restawrata u reġgħet infetħet diversi drabi, u b'hekk tirrifletti l-istorja li dejjem inbidlet tar-raħal."
-      },
-      {
-        "type": "text",
-        "value": "Fuq id-daħla tagħha hemm kitba bil-Latin li tgħid li l-kappella ma kinitx toffri ażil lill-maħrubin, kuntrarjament għal ħafna knejjes oħra f'Malta dak iż-żmien."
-      },
-      {
-        "type": "text",
-        "value": "Fl-1714, il-Kavallieri ta' San Ġwann dawru l-kappella b'fortifikazzjoni militari. Illum, hija tfakkar fl-istorja twila ta' Birżebbuġa bħala post ta' qima u port ta' importanza strateġika."
+        "value": {
+          "en": "St George's Chapel is one of the oldest buildings in Birżebbuġa, with documents confirming that it already existed in 1565. Over the centuries it has been abandoned, restored and reopened several times, reflecting the ever-changing history of the village.\n\nAbove its entrance is an inscription in Latin stating that the chapel did not offer asylum to fugitives, unlike many other churches in Malta at the time.\n\nIn 1714, the Knights of St John enclosed the chapel within a military fortification. Today it recalls Birżebbuġa's long history both as a place of worship and as a harbour of strategic importance.",
+          "mt": "Il-Kappella ta' San Ġorġ hija waħda mill-eqdem binjiet f'Birżebbuġa, b'dokumenti li jikkonfermaw li kienet diġà teżisti fl-1565. Matul is-sekli ġiet abbandunata, restawrata u reġgħet infetħet diversi drabi, u b'hekk tirrifletti l-istorja li dejjem inbidlet tar-raħal.\n\nFuq id-daħla tagħha hemm kitba bil-Latin li tgħid li l-kappella ma kinitx toffri ażil lill-maħrubin, kuntrarjament għal ħafna knejjes oħra f'Malta dak iż-żmien.\n\nFl-1714, il-Kavallieri ta' San Ġwann dawru l-kappella b'fortifikazzjoni militari. Illum, hija tfakkar fl-istorja twila ta' Birżebbuġa bħala post ta' qima u port ta' importanza strateġika."
+        }
       }
     ],
     "url": {
-      "type": "external",
       "href": "https://www.mal-bajja.com/knisja-ta-san-gorg",
-      "label": "Żur il-paġna"
+      "label": {
+        "en": "Visit page",
+        "mt": "Żur il-paġna"
+      }
     },
     "gps-coordinates": {
       "latitude": 35.83062,
@@ -198,7 +198,10 @@
     }
   },
   {
-    "title": "Triq San Patrizju",
+    "title": {
+      "en": "Triq San Patrizju",
+      "mt": "Triq San Patrizju"
+    },
     "category": "archival footage",
     "content": [
       {
@@ -209,22 +212,23 @@
       },
       {
         "type": "text",
-        "value": "1969 – Maratona minn Ċirkewwa għal Birżebbuġa."
+        "value": {
+          "en": "1969 – Marathon from Ċirkewwa to Birżebbuġa.",
+          "mt": "1969 – Maratona minn Ċirkewwa għal Birżebbuġa."
+        }
       }
     ],
     "gps-coordinates": {
       "latitude": 35.82351,
       "longitude": 14.52896
     },
-    "id": "triq-san-patrizju",
-    "url": {
-      "type": "inpage",
-      "href": "#triq-san-patrizju",
-      "label": "Visit page"
-    }
+    "id": "triq-san-patrizju"
   },
   {
-    "title": "Forti San Luċjan",
+    "title": {
+      "en": "Fort St Lucian",
+      "mt": "Forti San Luċjan"
+    },
     "category": "archival footage",
     "content": [
       {
@@ -235,22 +239,23 @@
       },
       {
         "type": "text",
-        "value": "Marsaxlokk"
+        "value": {
+          "en": "Marsaxlokk",
+          "mt": "Marsaxlokk"
+        }
       }
     ],
     "gps-coordinates": {
       "latitude": 35.83048,
       "longitude": 14.54324
     },
-    "id": "forti-san-lucjan",
-    "url": {
-      "type": "inpage",
-      "href": "#forti-san-lucjan",
-      "label": "Visit page"
-    }
+    "id": "forti-san-lucjan"
   },
   {
-    "title": "Il-bajja Ta' San Ġorġ",
+    "title": {
+      "en": "St George's Bay",
+      "mt": "Il-bajja Ta' San Ġorġ"
+    },
     "category": "archival footage",
     "content": [
       {
@@ -261,22 +266,23 @@
       },
       {
         "type": "text",
-        "value": "1992"
+        "value": {
+          "en": "1992",
+          "mt": "1992"
+        }
       }
     ],
     "gps-coordinates": {
       "latitude": 35.8298,
       "longitude": 14.53601
     },
-    "id": "il-bajja-ta-san-gorg",
-    "url": {
-      "type": "inpage",
-      "href": "#il-bajja-ta-san-gorg",
-      "label": "Visit page"
-    }
+    "id": "il-bajja-ta-san-gorg"
   },
   {
-    "title": "Ġnien San Ġorġ",
+    "title": {
+      "en": "St George's Garden",
+      "mt": "Ġnien San Ġorġ"
+    },
     "category": "archival footage",
     "content": [
       {
@@ -287,22 +293,23 @@
       },
       {
         "type": "text",
-        "value": "1996"
+        "value": {
+          "en": "1996",
+          "mt": "1996"
+        }
       }
     ],
     "gps-coordinates": {
       "latitude": 35.82978,
       "longitude": 14.52987
     },
-    "id": "gnien-san-gorg",
-    "url": {
-      "type": "inpage",
-      "href": "#gnien-san-gorg",
-      "label": "Visit page"
-    }
+    "id": "gnien-san-gorg"
   },
   {
-    "title": "Borġ In-Nadur",
+    "title": {
+      "en": "Borġ in-Nadur",
+      "mt": "Borġ In-Nadur"
+    },
     "category": "archival footage",
     "content": [
       {
@@ -313,18 +320,16 @@
       },
       {
         "type": "text",
-        "value": "1996"
+        "value": {
+          "en": "1996",
+          "mt": "1996"
+        }
       }
     ],
     "gps-coordinates": {
       "latitude": 35.83072,
       "longitude": 14.52841
     },
-    "id": "borg-in-nadur",
-    "url": {
-      "type": "inpage",
-      "href": "#borg-in-nadur",
-      "label": "Visit page"
-    }
+    "id": "borg-in-nadur"
   }
 ]

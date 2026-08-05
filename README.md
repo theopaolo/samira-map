@@ -11,6 +11,7 @@ Because it is always online, the map deliberately uses the **CARTO basemap CDN**
 - **Vite** — the dev server (with a pin-writer plugin) and the production build into `dist/`.
 - **ES modules** under `js/` — small, single-responsibility files:
   - `config.js` — map setup and the category list (labels, colour tones, icons, glyph fallbacks) — one source of truth.
+  - `i18n.js` — language resolution (`?lang=` → browser → English) and the helpers that read translated values.
   - `points.js` — loads + normalises points from `data/points.json`.
   - `store.js` — the reactive Alpine store: view state, selection, filtering and pin authoring.
   - `map.js` — Leaflet glue; markers, pin placement and admin drag, driven by store effects.
@@ -40,6 +41,19 @@ The map is authored locally and baked into [`data/points.json`](data/points.json
 5. `npm run build`, then deploy or embed the result.
 
 Without `?admin` the map is a clean, read-only view with no authoring UI. Public visitors are directed to request additions by email rather than submitting through the app.
+
+## Languages (English + Maltese)
+
+The map runs in **English (`en`)** or **Maltese (`mt`)**. Visitors get the language their browser asks for — a Maltese browser sees Maltese, anything else sees English. Adding `?lang=mt` (or `?lang=en`) to the URL overrides that, which is how you pin the language of the iframe on a given Webflow page. Bare `?mt` / `?mlt` / `?en` work too.
+
+There are two places text lives:
+
+- **UI strings** — [`data/strings.json`](data/strings.json), one key per string: `{ "noMedia": { "en": "…", "mt": "…" } }`. Templates read them with `$store.atlas.t('noMedia')`, never as literal copy.
+- **Pin content** — translated inline in [`data/points.json`](data/points.json): `title`, the story text and the link label are `{ en, mt }` pairs. See [`map-schema.md`](map-schema.md).
+
+A missing translation falls back to the other language instead of rendering blank, so a pin can go live in one language and be translated later.
+
+**Translating in the builder.** Open `?admin` (the admin chrome itself stays English). The **EN / MT** switch — bottom right on the map, and in the editor's header — decides which language you are looking at and which one the *Story title* and *Story* fields write to. Both languages are loaded into the form at once: fill one in, flip the switch, fill in the other, save once. The fields are marked `(EN)` / `(MT)` so it is always clear which one you are typing into, and a title or story is only required while the other language is still empty. `?admin&lang=mt` opens straight into Maltese.
 
 ## Category icons
 

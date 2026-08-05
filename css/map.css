@@ -231,3 +231,44 @@
 .admin-submit {
   right: 14px;
 }
+
+/* Admin-only EN / MT switch: on the map (above "Add a pin") and in the editor
+   header. Picks the language shown on the map and edited in the form. */
+.lang-switch {
+  display: inline-flex;
+  border: 1px solid var(--ink);
+  background: var(--paper-bright);
+}
+
+.lang-switch button {
+  min-height: 30px;
+  padding: 0 10px;
+  border: 0;
+  color: var(--ink);
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.lang-switch button + button {
+  border-left: 1px solid var(--ink);
+}
+
+.lang-switch button:hover {
+  background: var(--yellow);
+}
+
+.lang-switch button.is-active {
+  color: var(--paper-bright);
+  background: var(--ink);
+}
+
+.map-action.lang-switch,
+.map-action.lang-switch:hover {
+  bottom: 64px;
+  min-height: 0;
+  padding: 0;
+  background: var(--paper-bright);
+}

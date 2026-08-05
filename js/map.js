@@ -11,7 +11,6 @@ const markers = new Map();
 let placeMarker = null;
 
 const reduceMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const round = (value) => Math.round(value * 1e5) / 1e5;
 
 function markerIcon(point, active) {
   const inner = point.icon
@@ -39,7 +38,8 @@ function buildMarkers() {
   markers.forEach((marker) => marker.remove());
   markers.clear();
 
-  store.points.forEach((point) => {
+  // Localised copies: marker titles and tooltips follow the active language.
+  store.localizedPoints.forEach((point) => {
     const marker = L.marker([point.lat, point.lng], {
       icon: markerIcon(point, point.id === store.activeId),
       title: point.title,
@@ -83,11 +83,12 @@ function togglePlacing(on) {
 
 async function onAdminDrag(point, marker) {
   const { lat, lng } = marker.getLatLng();
-  point.lat = round(lat);
-  point.lng = round(lng);
+  // `point` is a localised copy — move the raw one the store owns.
+  const moved = store.movePoint(point.id, lat, lng);
+  if (!moved) return;
   try {
-    await patchPin(point.id, { "gps-coordinates": { latitude: point.lat, longitude: point.lng } });
-    showToast(`Saved ${point.title} → ${point.lat}, ${point.lng}`);
+    await patchPin(point.id, { "gps-coordinates": { latitude: moved.lat, longitude: moved.lng } });
+    showToast(`Saved ${point.title} → ${moved.lat}, ${moved.lng}`);
   } catch (error) {
     showToast(`Could not save: ${error.message}`);
   }
@@ -157,7 +158,8 @@ export function flyToPoint(point) {
   });
 }
 
-// Rebuild all markers after the point set changes (e.g. a pin was just saved).
+// Rebuild all markers after the point set or the language changes (e.g. a pin
+// was just saved). No-op before the map exists.
 export function rebuildMarkers() {
-  buildMarkers();
+  if (map) buildMarkers();
 }

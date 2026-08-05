@@ -11,3 +11,4 @@ Interactive map: Vite + Alpine.js + Leaflet, CSS built on the Piloti framework (
 
 - Served online, embedded in a Webflow page (no Webflow CMS — the rest of the site is built directly in Webflow). Runtime network dependencies are intentional and limited to: the CARTO **basemap tiles**, and **pin media** referenced by URL (Webflow-hosted images, YouTube/Vimeo embeds). Keep everything else bundled/self-hosted (fonts, scripts, icons).
 - Deployment target is Coolify using the repo `Dockerfile` (build pack = Dockerfile, not Nixpacks).
+- Bilingual (en/mt). No visitor-facing string may be hardcoded in a template or module: UI text goes in `data/strings.json` and is read via `$store.atlas.t('key')`; pin content is translated inline in `data/points.json` as `{ en, mt }`. Admin-only chrome (`?admin`) stays English on purpose.

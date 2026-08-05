@@ -53,6 +53,13 @@
   letter-spacing: -0.035em;
 }
 
+.submit-header-actions {
+  display: flex;
+  align-items: center;
+  flex: none;
+  gap: 12px;
+}
+
 .submit-close {
   display: grid;
   width: 44px;

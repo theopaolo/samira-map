@@ -1,16 +1,28 @@
 // The reactive UI brain: one Alpine store holds all view state and actions.
 // The map module reads this store; the templates render from it. No manual DOM.
+//
+// Language: `points` keeps the raw { en, mt } fields; every getter the UI reads
+// hands back a copy resolved to `lang`. Switching language is therefore just
+// `lang = "mt"` — every template re-renders on its own.
 import { CATEGORY_LIST } from "./config.js";
-import { createPin, patchPin, formToEntry } from "./pins-api.js";
-import { shapeJsonPoint } from "./points.js";
+import { createPin, patchPin, draftToEntry } from "./pins-api.js";
+import { shapeJsonPoint, localizePoint, storyPair } from "./points.js";
+import { FALLBACK_LANG, LANGS, pick, t, toPair, emptyPair } from "./i18n.js";
 import { rebuildMarkers, flyToPoint } from "./map.js";
 
 const round = (value) => Math.round(value * 1e5) / 1e5;
 
+const emptyDraft = () => ({
+  title: emptyPair(),
+  category: "",
+  story: emptyPair(),
+  media: "",
+});
+
 export function createStore() {
   return {
-    points: [],
-    filters: CATEGORY_LIST,
+    points: [], // raw points: translated fields are still { en, mt } pairs
+    lang: FALLBACK_LANG,
     activeCategory: null, // null = no filter, every category is shown
     activeId: null,
     submitOpen: false,
@@ -20,15 +32,50 @@ export function createStore() {
     placement: { lat: null, lng: null },
     placementBackup: null,
     editingId: null, // pin id being edited, null = creating a new pin
-    draft: { title: "", category: "", story: "", media: "" },
+    draft: emptyDraft(),
 
+    // UI string in the active language: t("skipToMap").
+    t(key, vars) {
+      return t(key, this.lang, vars);
+    },
+    // Admin-only: swap the language the map and the editor's fields show.
+    // The admin chrome itself stays English.
+    setLang(lang) {
+      this.lang = lang;
+      document.documentElement.lang = lang;
+      rebuildMarkers(); // marker tooltips carry the pin titles
+      // Mirror the choice into the URL, so a reload (or a shared link) keeps it.
+      const url = new URL(location.href);
+      LANGS.forEach((code) => url.searchParams.delete(code)); // drop bare ?mt / ?en flags
+      url.searchParams.delete("mlt");
+      url.searchParams.set("lang", lang);
+      // Keep valueless flags bare: "?admin&lang=en", not "?admin=&lang=en".
+      history.replaceState(null, "", url.toString().replace(/=(?=&|#|$)/g, ""));
+    },
+
+    // The language currently *not* being edited. A title/story is required
+    // only while the other language is still empty, so a pin can be saved with
+    // one language filled in and translated later.
+    get otherLang() {
+      return this.lang === "mt" ? "en" : "mt";
+    },
+    get filters() {
+      return CATEGORY_LIST.map((category) => ({
+        ...category,
+        label: pick(category.label, this.lang),
+      }));
+    },
+    get localizedPoints() {
+      return this.points.map((point) => localizePoint(point, this.lang));
+    },
     get visiblePoints() {
       return this.activeCategory
-        ? this.points.filter((point) => point.category === this.activeCategory)
-        : this.points;
+        ? this.localizedPoints.filter((point) => point.category === this.activeCategory)
+        : this.localizedPoints;
     },
     get activePoint() {
-      return this.points.find((point) => point.id === this.activeId) || null;
+      const point = this.points.find((entry) => entry.id === this.activeId);
+      return point ? localizePoint(point, this.lang) : null;
     },
     get hasPlacement() {
       return Number.isFinite(this.placement.lat) && Number.isFinite(this.placement.lng);
@@ -53,6 +100,14 @@ export function createStore() {
       this.select(id);
       if (this.activePoint) flyToPoint(this.activePoint);
     },
+    // Admin marker drag: move the raw point so the change survives re-renders.
+    movePoint(id, lat, lng) {
+      const point = this.points.find((entry) => entry.id === id);
+      if (!point) return null;
+      point.lat = round(lat);
+      point.lng = round(lng);
+      return point;
+    },
     setCategory(category) {
       // Clicking the active filter again clears it, restoring the full set.
       this.activeCategory = this.activeCategory === category ? null : category;
@@ -63,20 +118,22 @@ export function createStore() {
     },
     openSubmit() {
       this.editingId = null;
-      this.draft = { title: "", category: "", story: "", media: "" };
+      this.draft = emptyDraft();
       this.placement = { lat: null, lng: null };
       this.submitState = "form";
       this.submitOpen = true;
     },
     // Prefill the same form from an existing pin and switch submit to a patch.
+    // Both languages are loaded at once — the EN/MT switch only decides which
+    // one the inputs are bound to.
     openEdit(id) {
       const point = this.points.find((entry) => entry.id === id);
       if (!point) return;
       this.editingId = id;
       this.draft = {
-        title: point.title,
+        title: toPair(point.title),
         category: point.category,
-        story: point.paragraphs.join("\n\n"),
+        story: storyPair(point.text),
         media: point.media?.src || "",
       };
       this.placement = { lat: point.lat, lng: point.lng };
@@ -95,7 +152,7 @@ export function createStore() {
     // the map live. Handles both new pins (POST) and edits (PUT).
     async submit(event) {
       event.preventDefault();
-      const entry = formToEntry(new FormData(event.target));
+      const entry = draftToEntry(this.draft, this.placement);
       let savedId;
       try {
         if (this.editingId) {

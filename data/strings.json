@@ -1,0 +1,46 @@
+{
+  "skipToMap": {
+    "en": "Skip to map",
+    "mt": "Aqbeż għall-mappa"
+  },
+  "mapLabel": {
+    "en": "Map of Birżebbuġa",
+    "mt": "Mappa ta' Birżebbuġa"
+  },
+  "mapLabelCount": {
+    "en": "Map of Birżebbuġa with {count} story points",
+    "mt": "Mappa ta' Birżebbuġa b'{count} punti tal-istorja"
+  },
+  "mapSectionLabel": {
+    "en": "Interactive story map",
+    "mt": "Mappa interattiva tal-istejjer"
+  },
+  "filterByCategory": {
+    "en": "Filter by category",
+    "mt": "Iffiltra skont il-kategorija"
+  },
+  "loadingPoints": {
+    "en": "Loading map points…",
+    "mt": "Qed jitgħabbew il-punti tal-mappa…"
+  },
+  "loadError": {
+    "en": "The atlas could not load. Start a local web server and check your connection, then refresh the page.",
+    "mt": "Il-mappa ma setgħetx titgħabba. Iċċekkja l-konnessjoni tiegħek u erġa' agħmel refresh tal-paġna."
+  },
+  "noScript": {
+    "en": "This map requires JavaScript to load its places and OpenStreetMap view.",
+    "mt": "Din il-mappa teħtieġ JavaScript biex tgħabbi l-postijiet u l-veduta ta' OpenStreetMap."
+  },
+  "storyEmpty": {
+    "en": "Choose an item on the map to discover the story of that landmark",
+    "mt": "Agħżel oġġett fuq il-mappa biex tiskopri l-istorja ta' dan il-punt ta' riferiment"
+  },
+  "noMedia": {
+    "en": "No media attached",
+    "mt": "L-ebda midja mehmuża"
+  },
+  "visitPage": {
+    "en": "Visit page",
+    "mt": "Żur il-paġna"
+  }
+}

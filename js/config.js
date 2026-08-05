@@ -23,12 +23,13 @@ export const MAP = {
 // in /assets/). Icons render as silhouettes tinted with the marker colour, so
 // only the shape matters. Set `icon: null` to fall back to the text `glyph`.
 // See public/assets/icons/README.md.
+// `label` is translated inline, same { en, mt } shape as the pin content.
 export const CATEGORY_LIST = [
-  { key: "landmarks",    label: "punt ta' riferiment",   slug: "main-location",    tone: "location", glyph: "■", icon: "/assets/icons/main-location.svg" },
-  { key: "archival footage", label: "arkivju", slug: "archival-footage", tone: "archive",  glyph: "★", icon: "/assets/icons/archival-footage.svg" },
-  // { key: "main stories",     label: "Stories",     slug: "main-stories",     tone: "stories",  glyph: "▼", icon: "/assets/icons/main-stories.svg" },
-  // { key: "submitted video",  label: "Submitted video",  slug: "submitted-video",  tone: "video",    glyph: "♥", icon: "/assets/icons/submitted-video.svg" },
-  
+  { key: "landmarks",    label: { en: "Landmarks", mt: "punt ta' riferiment" },   slug: "main-location",    tone: "location", glyph: "■", icon: "/assets/icons/main-location.svg" },
+  { key: "archival footage", label: { en: "Archive", mt: "arkivju" }, slug: "archival-footage", tone: "archive",  glyph: "★", icon: "/assets/icons/archival-footage.svg" },
+  // { key: "main stories",     label: { en: "Stories", mt: "Stejjer" },     slug: "main-stories",     tone: "stories",  glyph: "▼", icon: "/assets/icons/main-stories.svg" },
+  // { key: "submitted video",  label: { en: "Submitted video", mt: "Vidjo mibgħut" },  slug: "submitted-video",  tone: "video",    glyph: "♥", icon: "/assets/icons/submitted-video.svg" },
+
 ];
 
 export const DEFAULT_CATEGORY = "landmarks";

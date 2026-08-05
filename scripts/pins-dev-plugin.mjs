@@ -72,7 +72,8 @@ export function pinsDevPlugin() {
             if (!entry.title) return send(res, 400, { error: "A title is required." });
             const id = uniqueId(entry.id || slugify(entry.title), new Set(points.map((p) => p.id)));
             entry.id = id;
-            entry.url ??= { type: "inpage", href: `#${id}`, label: "Visit page" };
+            // No default `url`: a pin links out only once someone writes a real
+            // href into data/points.json (see shapeUrl() in js/points.js).
             points.push(entry);
             await writePoints(points);
             return send(res, 200, { point: entry, count: points.length });
