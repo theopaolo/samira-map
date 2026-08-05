@@ -44,7 +44,20 @@ Without `?admin` the map is a clean, read-only view with no authoring UI. Public
 
 ## Languages (English + Maltese)
 
-The map runs in **English (`en`)** or **Maltese (`mt`)**. Visitors get the language their browser asks for — a Maltese browser sees Maltese, anything else sees English. Adding `?lang=mt` (or `?lang=en`) to the URL overrides that, which is how you pin the language of the iframe on a given Webflow page. Bare `?mt` / `?mlt` / `?en` work too.
+The map runs in **English (`en`)** or **Maltese (`mt`)**. Three signals decide, in order:
+
+1. **The URL** — `?lang=mt` / `?lang=en` (bare `?mt` / `?mlt` / `?en` work too).
+2. **The embedding page** — the Webflow site switches language by swapping page, and Maltese is its default: `mal-bajja.com/` is Maltese, `mal-bajja.com/home-en` is English. So a referrer from the site (`mal-bajja.com` or the `*.webflow.io` staging domain) whose path ends in `-en` means English, and any other page of the site means Maltese. A referrer from anywhere else is ignored.
+3. **The browser language** — a Maltese browser sees Maltese, anything else falls back to English.
+
+**Embedding in Webflow:** the Maltese pages need nothing — rule 2 already reads them as Maltese. The **English page must be marked**, because the browser's default referrer policy trims a cross-origin referrer to its bare origin (`https://www.mal-bajja.com/`), which reads as the Maltese root. Mark it either way:
+
+- `src="…/?lang=en"` on the `/home-en` embed — exact, and what to do by default; or
+- `referrerpolicy="unsafe-url"` on the iframe, which lets the `/home-en` path reach the map so rule 2 can see it.
+
+Doing both is fine; the query wins.
+
+To check what a live embed resolved to, open the console, switch the frame selector from `top` to the map frame, and read the `[map] lang=… · query=… · embed=…` line it logs on load.
 
 There are two places text lives:
 

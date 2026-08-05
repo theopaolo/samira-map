@@ -11,9 +11,14 @@ Alpine.store("atlas", createStore());
 // and mutate *it*, or the templates never update.
 const store = Alpine.store("atlas");
 store.admin = new URLSearchParams(location.search).has("admin");
-// ?lang=mt / ?mt wins, otherwise the browser language decides.
+// ?lang=mt / ?mt wins, then the embedding Webflow page, then the browser.
 store.lang = resolveLang();
 document.documentElement.lang = store.lang;
+// Inside the Webflow iframe there is no other way to see which signal won:
+// open the console, switch the frame selector from "top" to the map, read this.
+console.info(
+  `[map] lang=${store.lang} · query=${location.search || "—"} · embed=${document.referrer || "—"}`
+);
 
 Alpine.start();
 
