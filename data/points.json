@@ -8,9 +8,10 @@
     "category": "landmarks",
     "content": [
       {
-        "type": "image",
-        "src": "https://cdn.prod.website-files.com/6a0c27d1857f35d75b7c88d7/6a0c5f4417843c21fff08644_Group%2034.jpg",
-        "alt": "Angular concrete monument beside the sea"
+        "type": "video",
+        "src": "https://youtu.be/fXN1eMQegDw",
+        "poster": "",
+        "caption": ""
       },
       {
         "type": "text",
