@@ -3,7 +3,7 @@
     "id": "cold-war-monument",
     "title": {
       "en": "End of Cold War Memorial",
-      "mt": "Monument ta' Tmiem il-Gwerra Bierda"
+      "mt": "End of Cold War Memorial"
     },
     "category": "landmarks",
     "content": [
@@ -70,7 +70,7 @@
   {
     "id": "freeport-night-shift",
     "title": {
-      "en": "St George's Bay",
+      "en": "St. George's Bay",
       "mt": "Il-Bajja ta' San Ġorġ"
     },
     "category": "landmarks",
@@ -172,7 +172,7 @@
   {
     "id": "st-peters-pool",
     "title": {
-      "en": "St George's Chapel",
+      "en": "St. George's Chapel",
       "mt": "Il-Kappella ta’ San Ġorġ"
     },
     "category": "landmarks",
@@ -232,7 +232,7 @@
   },
   {
     "title": {
-      "en": "Fort St Lucian",
+      "en": "Fort St. Lucian",
       "mt": "Forti San Luċjan"
     },
     "category": "archival footage",
@@ -259,7 +259,7 @@
   },
   {
     "title": {
-      "en": "St George's Bay",
+      "en": "St. George's Bay",
       "mt": "Il-bajja Ta' San Ġorġ"
     },
     "category": "archival footage",
@@ -286,7 +286,7 @@
   },
   {
     "title": {
-      "en": "St George's Garden",
+      "en": "St. George's Garden",
       "mt": "Ġnien San Ġorġ"
     },
     "category": "archival footage",
