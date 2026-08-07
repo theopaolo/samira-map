@@ -337,5 +337,26 @@
       "longitude": 14.52841
     },
     "id": "borg-in-nadur"
+  },
+  {
+    "title": {
+      "en": "",
+      "mt": "Un titre"
+    },
+    "category": "archival footage",
+    "content": [
+      {
+        "type": "text",
+        "value": {
+          "en": "",
+          "mt": "Du contenu"
+        }
+      }
+    ],
+    "gps-coordinates": {
+      "latitude": 35.83525,
+      "longitude": 14.53367
+    },
+    "id": "un-titre"
   }
 ]

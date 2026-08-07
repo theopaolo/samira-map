@@ -9,6 +9,11 @@ import { fileURLToPath } from "node:url";
 
 const DATA_FILE = fileURLToPath(new URL("../data/points.json", import.meta.url));
 
+// Titles arrive as an { en, mt } pair (a plain string only for pins written by
+// hand before the field was translated). Either language is fine for the slug.
+const titleText = (title) =>
+  typeof title === "string" ? title : title?.en || title?.mt || "";
+
 const slugify = (value = "") =>
   value
     .normalize("NFD")
@@ -69,8 +74,9 @@ export function pinsDevPlugin() {
 
           if (req.method === "POST") {
             const entry = await readBody(req);
-            if (!entry.title) return send(res, 400, { error: "A title is required." });
-            const id = uniqueId(entry.id || slugify(entry.title), new Set(points.map((p) => p.id)));
+            const title = titleText(entry.title);
+            if (!title) return send(res, 400, { error: "A title is required." });
+            const id = uniqueId(entry.id || slugify(title), new Set(points.map((p) => p.id)));
             entry.id = id;
             // No default `url`: a pin links out only once someone writes a real
             // href into data/points.json (see shapeUrl() in js/points.js).
