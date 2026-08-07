@@ -358,5 +358,187 @@
       "longitude": 14.53367
     },
     "id": "un-titre"
+  },
+  {
+    "title": {
+      "en": "Shell storage tanks",
+      "mt": "Shell storage tanks"
+    },
+    "category": "archival footage",
+    "content": [
+      {
+        "type": "image",
+        "src": "https://cdn.prod.website-files.com/6a0c27d1857f35d75b7c88d7/6a759162b280f199b833d75d_archiveshell_bay.jpg",
+        "alt": ""
+      },
+      {
+        "type": "text",
+        "value": {
+          "en": "[Unknown date]",
+          "mt": "[Unknown date]"
+        }
+      }
+    ],
+    "gps-coordinates": {
+      "latitude": 35.8303,
+      "longitude": 14.53006
+    },
+    "id": "shell-storage-tanks"
+  },
+  {
+    "title": {
+      "en": "Rowing club, Pretty Bay",
+      "mt": "Klabb tar-Regatta, Pretty Bay"
+    },
+    "category": "archival footage",
+    "content": [
+      {
+        "type": "image",
+        "src": "https://cdn.prod.website-files.com/6a0c27d1857f35d75b7c88d7/6a75916231ac530b1e4d7099_ArchivePrettyBay1.jpg",
+        "alt": ""
+      },
+      {
+        "type": "text",
+        "value": {
+          "en": "[Unknown date]",
+          "mt": "[Unknown date]"
+        }
+      }
+    ],
+    "gps-coordinates": {
+      "latitude": 35.82565,
+      "longitude": 14.52994
+    },
+    "id": "rowing-club-pretty-bay"
+  },
+  {
+    "title": {
+      "en": "Shell pier",
+      "mt": "Shell pier"
+    },
+    "category": "archival footage",
+    "content": [
+      {
+        "type": "image",
+        "src": "https://cdn.prod.website-files.com/6a0c27d1857f35d75b7c88d7/6a759161f9101e429e2e3640_archivegaspoint.jpg",
+        "alt": ""
+      },
+      {
+        "type": "text",
+        "value": {
+          "en": "[Unknown date]",
+          "mt": "[Unknown date]"
+        }
+      }
+    ],
+    "gps-coordinates": {
+      "latitude": 35.82576,
+      "longitude": 14.53276
+    },
+    "id": "shell-pier"
+  },
+  {
+    "title": {
+      "en": "Feast of St. Peter",
+      "mt": "Festa ta' San Pietru"
+    },
+    "category": "archival footage",
+    "content": [
+      {
+        "type": "image",
+        "src": "https://cdn.prod.website-files.com/6a0c27d1857f35d75b7c88d7/6a759161d96393259fb875a4_Archivechurch.jpg",
+        "alt": ""
+      },
+      {
+        "type": "text",
+        "value": {
+          "en": "[Unknown date]",
+          "mt": "[Unknown date]"
+        }
+      }
+    ],
+    "gps-coordinates": {
+      "latitude": 35.82656,
+      "longitude": 14.52712
+    },
+    "id": "festa-ta-san-pietru"
+  },
+  {
+    "title": {
+      "en": "Birżebbuġa Street",
+      "mt": "Triq Birżebbuġa"
+    },
+    "category": "archival footage",
+    "content": [
+      {
+        "type": "image",
+        "src": "https://cdn.prod.website-files.com/6a0c27d1857f35d75b7c88d7/6a7591622f4f9d447eab0926_Archive-near-the-square.jpg",
+        "alt": ""
+      },
+      {
+        "type": "text",
+        "value": {
+          "en": "[Unknown date]",
+          "mt": "[Unknown date]"
+        }
+      }
+    ],
+    "gps-coordinates": {
+      "latitude": 35.82636,
+      "longitude": 14.52793
+    },
+    "id": "triq-birzebbuga"
+  },
+  {
+    "title": {
+      "en": "Birżebbuġa Street",
+      "mt": "Triq Birżebbuġa"
+    },
+    "category": "archival footage",
+    "content": [
+      {
+        "type": "image",
+        "src": "https://cdn.prod.website-files.com/6a0c27d1857f35d75b7c88d7/6a759162e8be118c8f5c525d_archive-downhill-from-church.jpg",
+        "alt": ""
+      },
+      {
+        "type": "text",
+        "value": {
+          "en": "[Unknown date]",
+          "mt": "[Unknown date]"
+        }
+      }
+    ],
+    "gps-coordinates": {
+      "latitude": 35.82772,
+      "longitude": 14.5276
+    },
+    "id": "birzebbuga-street"
+  },
+  {
+    "title": {
+      "en": "Aerial view of Birżebbuġa",
+      "mt": "Aerial view ta Birżebbuġa"
+    },
+    "category": "archival footage",
+    "content": [
+      {
+        "type": "image",
+        "src": "https://cdn.prod.website-files.com/6a0c27d1857f35d75b7c88d7/6a759162aad25c81acb7c55e_archive-church-aerial.jpg",
+        "alt": ""
+      },
+      {
+        "type": "text",
+        "value": {
+          "en": "[Unknown date]",
+          "mt": "[Unknown date]"
+        }
+      }
+    ],
+    "gps-coordinates": {
+      "latitude": 35.82708,
+      "longitude": 14.52812
+    },
+    "id": "aerial-view-of-birzebbuga"
   }
 ]
