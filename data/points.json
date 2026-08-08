@@ -519,5 +519,32 @@
       "longitude": 14.52812
     },
     "id": "aerial-view-of-birzebbuga"
+  },
+  {
+    "title": {
+      "en": "Chaoyi and Chunhui Liu",
+      "mt": "Chaoyi u Chunhui Liu"
+    },
+    "category": "landmarks",
+    "content": [
+      {
+        "type": "video",
+        "src": "https://www.youtube.com/watch?v=4Fe_1dks7Pc",
+        "poster": "",
+        "caption": ""
+      },
+      {
+        "type": "text",
+        "value": {
+          "en": "Pretty Bay is one of Birżebbuġa’s most loved  spaces, but  its history is closely tied to Malta’s colonial past. The beach itself is artificial, created with sand dredged during the construction of the Malta Freeport in the late 1980s. \n\nBefore that, the bay was occupied by RAF Kalafrana,  part of a wider British military presence that restricted local access to the coastline for generations. Following Malta’s independence and the closure of the British base, the Freeport was developed as part of the country’s effort to build an independent economy. \n\nToday, the port remains a major Mediterranean trade hub, while the sand it displaced became Pretty Bay - a vibrant gathering place at the heart of the community.",
+          "mt": "Pretty Bay hija waħda mill-aktar spazji maħbuba f’Birżebbuġa, iżda l-istorja tagħha hija marbuta mill-qrib mal-passat kolonjali ta’ Malta. Il-bajja nnifisha hija artifiċjali, maħluqa  bir-ramel li tħaffer mill-qiegħ tal-baħar waqt il-bini  tal-Freeport ta’ Malta lejn l-aħħar tas-snin tmenin.\n\nQabel dan, il-bajja kienet okkupata mir-RAF Kalafrana,  parti minn preżenza militari Brittanika usa’ li għal ġenerazzjonijiet sħaħ illimitat l-aċċess tal-lokal għall-kosta. Wara l-indipendenza ta’ Malta u l-għeluq tal-bażi Brittanika,  il-Freeport ġie żviluppat bħala parti mill-isforz tal-pajjiż biex jibni ekonomija indipendenti.\n\nIllum, il-port għadu wieħed miċ-ċentri ewlenin tal-kummerċ fil-Mediterran, filwaqt li r-ramel li ġie rilokat biex jinbena  sar Pretty Bay - spazju vibranti għall-mistrieħ, il-laqgħat  u l-ħajja tal-komunità."
+        }
+      }
+    ],
+    "gps-coordinates": {
+      "latitude": 35.82493,
+      "longitude": 14.52927
+    },
+    "id": "chaoyi-and-chunhui-liu"
   }
 ]
