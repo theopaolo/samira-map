@@ -2,11 +2,11 @@
 
 An interactive cultural map of Birżebbuġa, Malta. It is a small **Vite + Alpine.js + Leaflet** app: you author the map's pins locally in a builder UI, then run a build to produce a static bundle that is **served online, embedded in a Webflow page**.
 
-Because it is always online, the map deliberately uses the **CARTO basemap CDN** for tiles — there is no offline requirement, so the bundle stays light rather than shipping local tiles. Everything else (Leaflet, Alpine, fonts, scripts, icons, media) is bundled.
+Because it is always online, the map deliberately uses **OpenFreeMap's public basemap** — there is no offline requirement, so the bundle stays light rather than shipping local tiles. Everything else (Leaflet, MapLibre, Alpine, fonts, scripts, icons, media) is bundled.
 
 ## Stack
 
-- **Leaflet + CARTO/OpenStreetMap** — the interactive base map and markers. Leaflet ships with the app; the basemap tiles are fetched from the CARTO CDN at runtime (intentional — see above).
+- **Leaflet + MapLibre + OpenFreeMap/OpenStreetMap** — Leaflet handles interaction and markers, while MapLibre renders OpenFreeMap's Positron vector basemap. Both libraries ship with the app; basemap resources are fetched from OpenFreeMap at runtime (intentional — see above).
 - **Alpine.js** — declarative UI state (story panel, filters, submit dialog). All rendering reacts to one store, so there is no manual DOM wiring.
 - **Vite** — the dev server (with a pin-writer plugin) and the production build into `dist/`.
 - **ES modules** under `js/` — small, single-responsibility files:
@@ -86,7 +86,7 @@ Images, video posters and icons live under `public/assets/` and are copied verba
 
 ## Dependencies
 
-Leaflet and Alpine.js are pinned in `package.json` and installed into `node_modules`; `scripts/vendor.mjs` (run on `postinstall`) also refreshes local copies in `vendor/`. To update them (requires Node), bump the versions in `package.json`, then:
+Leaflet, MapLibre, the Leaflet MapLibre bridge and Alpine.js are pinned in `package.json` and installed into `node_modules`; `scripts/vendor.mjs` (run on `postinstall`) also refreshes local copies of Leaflet and Alpine.js in `vendor/`. To update them (requires Node), bump the versions in `package.json`, then:
 
 ```bash
 npm install        # installs into node_modules and re-vendors automatically

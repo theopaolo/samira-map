@@ -5,11 +5,10 @@ export const MAP = {
   zoom: 14,
   minZoom: 11,
   maxZoom: 19,
-  tiles: {
-    url: "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
-    subdomains: "abcd",
+  basemap: {
+    style: "https://tiles.openfreemap.org/styles/positron",
     attribution:
-      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      '<a href="https://openfreemap.org/">OpenFreeMap</a> &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> Data from <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
   },
 };
 
