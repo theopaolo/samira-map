@@ -149,6 +149,10 @@ export function initMap(storeRef) {
       customAttribution: MAP.basemap.attribution,
     },
   }).addTo(map);
+  // Leaflet's own "Leaflet" prefix is optional under its licence; dropping it
+  // keeps the required OpenFreeMap / OpenMapTiles / OpenStreetMap credits on a
+  // single readable line on narrow phones.
+  map.attributionControl.setPrefix(false);
   L.control.zoom({ position: "bottomright" }).addTo(map);
   map.on("click", (event) => store.placing && setPlacement(event.latlng));
 
