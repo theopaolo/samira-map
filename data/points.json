@@ -546,5 +546,109 @@
       "longitude": 14.52927
     },
     "id": "chaoyi-and-chunhui-liu"
+  },
+  {
+    "title": {
+      "en": "Waterpolo Club",
+      "mt": "Waterpolo Club"
+    },
+    "category": "archival footage",
+    "content": [
+      {
+        "type": "image",
+        "src": "https://cdn.prod.website-files.com/6a0c27d1857f35d75b7c88d7/6a9e7294b4b87d9f7366633d_Augmented_WaterpoloPitch_Image-Sep-6%2C-2026%2C-11_37_09-AM.jpg",
+        "alt": ""
+      },
+      {
+        "type": "text",
+        "value": {
+          "en": "1973 – Waterpolo pitch, final match against Ta Xbiex \n[provided by Joe Esposito]",
+          "mt": "1973 – Waterpolo pitch, final match against Ta Xbiex \n[provided by Joe Esposito]"
+        }
+      }
+    ],
+    "gps-coordinates": {
+      "latitude": 35.82544,
+      "longitude": 14.53083
+    },
+    "id": "waterpolo-club"
+  },
+  {
+    "title": {
+      "en": "Il-Qajjenza Street",
+      "mt": "Triq Il-Qajjenza"
+    },
+    "category": "archival footage",
+    "content": [
+      {
+        "type": "image",
+        "src": "https://cdn.prod.website-files.com/6a0c27d1857f35d75b7c88d7/6a9e7294ec9b83b2ae8a882c_Aigmented-Image-Sep-6%2C-2026%2C-11_42_06-AM.jpg",
+        "alt": ""
+      },
+      {
+        "type": "text",
+        "value": {
+          "en": "Late 19th century, est. 1880s – Photochrome photograph, taken during a large event, probably the village festa. [Provided by Neil Borg]",
+          "mt": "Late 19th century, est. 1880s – Ritratt photochrome, waqt avveniment kbir, probabbilment il-festa tar-raħal. [Ipprovdut minn Neil Borg]"
+        }
+      }
+    ],
+    "gps-coordinates": {
+      "latitude": 35.82547,
+      "longitude": 14.53071
+    },
+    "id": "il-qajjenza-street"
+  },
+  {
+    "title": {
+      "en": "St. George's Bay",
+      "mt": "Il-bajja Ta' San Ġorġ"
+    },
+    "category": "archival footage",
+    "content": [
+      {
+        "type": "image",
+        "src": "https://cdn.prod.website-files.com/6a0c27d1857f35d75b7c88d7/6a9e729487f4227fbe468333_AIGmented-Image-Sep-6%2C-2026%2C-11_50_09-AM.jpg",
+        "alt": ""
+      },
+      {
+        "type": "text",
+        "value": {
+          "en": "Late 19th century – Glass plate negatives. [Donated by Malta Image Preservation Archive]",
+          "mt": "Late 19th century – Glass plate negatives. [Donated by Malta Image Preservation Archive]"
+        }
+      }
+    ],
+    "gps-coordinates": {
+      "latitude": 35.82998,
+      "longitude": 14.53077
+    },
+    "id": "st-george-s-bay"
+  },
+  {
+    "title": {
+      "en": "Pretty Bay Street",
+      "mt": "Triq il-Bajja s-Sabiħa"
+    },
+    "category": "archival footage",
+    "content": [
+      {
+        "type": "image",
+        "src": "https://cdn.prod.website-files.com/6a0c27d1857f35d75b7c88d7/6a9e7294774e6ec7b7fd224b_AIGmented-Image-Sep-6%2C-2026%2C-11_51_13-AM.jpg",
+        "alt": ""
+      },
+      {
+        "type": "text",
+        "value": {
+          "en": "Late 19th century – Glass plate negatives. [Donated by Malta Image Preservation Archive]",
+          "mt": ""
+        }
+      }
+    ],
+    "gps-coordinates": {
+      "latitude": 35.82553,
+      "longitude": 14.52831
+    },
+    "id": "pretty-bay-street"
   }
 ]
