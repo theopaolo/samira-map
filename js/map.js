@@ -1,9 +1,15 @@
 // Leaflet glue. The map stays imperative, but it is *driven* by the store
 // through a handful of Alpine effects, so there is one source of truth.
 import L from "leaflet";
+import { maplibreGL } from "@maplibre/maplibre-gl-leaflet";
+import { setWorkerUrl } from "maplibre-gl";
+import maplibreWorkerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url";
 import "leaflet/dist/leaflet.css";
+import "maplibre-gl/dist/maplibre-gl.css";
 import { MAP } from "./config.js";
 import { patchPin } from "./pins-api.js";
+
+setWorkerUrl(maplibreWorkerUrl);
 
 let map;
 let store;
@@ -136,13 +142,17 @@ export function initMap(storeRef) {
     minZoom: MAP.minZoom,
     maxZoom: MAP.maxZoom,
     zoomControl: false,
-    attributionControl: false,
   });
-  L.tileLayer(MAP.tiles.url, {
-    maxZoom: MAP.maxZoom,
-    subdomains: MAP.tiles.subdomains,
-    attribution: MAP.tiles.attribution,
+  maplibreGL({
+    style: MAP.basemap.style,
+    attributionControl: {
+      customAttribution: MAP.basemap.attribution,
+    },
   }).addTo(map);
+  // Leaflet's own "Leaflet" prefix is optional under its licence; dropping it
+  // keeps the required OpenFreeMap / OpenMapTiles / OpenStreetMap credits on a
+  // single readable line on narrow phones.
+  map.attributionControl.setPrefix(false);
   L.control.zoom({ position: "bottomright" }).addTo(map);
   map.on("click", (event) => store.placing && setPlacement(event.latlng));
 
